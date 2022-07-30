@@ -2,17 +2,12 @@ type propsType = {
     isDark: boolean;
 }
 
-function Grid(props: propsType) {
+function Grid(props: propsType, { children }: IntrinsicAttributes & propsType) {
     let sectionClass = 'light'
     if (props.isDark) sectionClass = 'dark'
     return (
         <section className={sectionClass}>
-            <h1>ㅎㅇ</h1>
-            <h1>ㅎㅇ</h1>
-            <h1>ㅎㅇ</h1>
-            <h1>ㅎㅇ</h1>
-            <h1>ㅎㅇ</h1>
-            <h1>ㅎㅇ</h1>
+            {children}
         </section>
     )
 }
