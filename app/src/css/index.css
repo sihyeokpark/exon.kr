@@ -1,0 +1,18 @@
+@import 'reset.css';
+
+body {
+    --white-main-bg: #ffffff;
+    --white-main-txt: #ffffff;
+    --white-sub-txt: #e6e6e6;
+    --dark-main-bg: #000000;
+    --dark-main-txt: #ffffff;
+    --dark-sub-txt: #e6e6e6;
+
+    background-color: var(--white-main-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
