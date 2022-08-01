@@ -12,3 +12,15 @@ section.light {
     background-color: var(--light-main-bg);
     color: var(--light-main-txt);
 }
+
+nav {
+    /* background-color: var(--light-main-bg); */
+    background-color: var(--light-sub-txt);
+    width: 100vw;
+    height: 10vh;
+}
+
+nav img {
+    margin-left: 5vh;
+    margin-top: 2.5vh;
+}
