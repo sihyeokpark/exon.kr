@@ -7,7 +7,7 @@ nav {
 }
 
 nav img {
-    margin-left: 5vh;
+    padding-left: 5vw;
     vertical-align: middle;
 }
 
@@ -17,5 +17,5 @@ nav .left {
 
 nav .right {
     float: right;
-    margin-right: 5vh;
+    padding-right: 5vw;
 }

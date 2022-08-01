@@ -9,7 +9,11 @@ function App() {
             <Grid isDark={false}>
                 <Navi></Navi>
                 <main>
-                    <h1 className='title'>EXON</h1>
+                    <div className='part'>
+                        <p>세상을 바꿉니다.</p>
+                        <h1 className='title'>EXON</h1>
+                    </div>
+                    
                 </main>
             </Grid>
             <Grid isDark={true}></Grid>
