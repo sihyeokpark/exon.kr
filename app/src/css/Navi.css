@@ -1,0 +1,21 @@
+nav {
+    /* background-color: var(--light-main-bg); */
+    background-color: var(--light-sub-txt);
+    width: 100vw;
+    height: 10vh;
+    line-height: 10vh;
+}
+
+nav img {
+    margin-left: 5vh;
+    vertical-align: middle;
+}
+
+nav .left {
+    float: left;
+}
+
+nav .right {
+    float: right;
+    margin-right: 5vh;
+}

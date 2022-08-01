@@ -1,6 +1,8 @@
 import logo from '../images/logo.png'
 import github from '../images/github.png'
 
+import '../css/Navi.css'
+
 function Navi() {
     return (
         <nav>

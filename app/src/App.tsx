@@ -8,6 +8,9 @@ function App() {
         <div>
             <Grid isDark={false}>
                 <Navi></Navi>
+                <main>
+                    <h1 className='title'>EXON</h1>
+                </main>
             </Grid>
             <Grid isDark={true}></Grid>
         </div>
