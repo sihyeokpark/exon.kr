@@ -1,22 +1,35 @@
-import Grid from './components/Grid'
-import Navi from './components/Navi'
-
 import './css/App.css'
 
 function App() {
     return (
         <div>
-            <Grid isDark={false}>
-                <Navi></Navi>
-                <main>
-                    <div className='part'>
-                        <p>세상을 바꿉니다.</p>
-                        <h1 className='title'>EXON</h1>
+            <div className="container">
+                <section>
+                    <div className="content">
+                        <h1>Hi!<br/>I'm induling in CODE</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum laudantium quam aspernatur eum nisi, blanditiis assumenda, aut dolor tempore, mollitia consequatur numquam quos corporis aliquid molestias iusto velit obcaecati id!</p>
                     </div>
-                    
-                </main>
-            </Grid>
-            <Grid isDark={true}></Grid>
+                </section>
+                <section>
+                    <div className="content">
+                        <h2>heleioafjowej</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum laudantium quam aspernatur eum nisi, blanditiis assumenda, aut dolor tempore, mollitia consequatur numquam quos corporis aliquid molestias iusto velit obcaecati id!</p>
+                    </div>
+                </section>
+                <section>
+                    <div className="content">
+                        <h2>heleioafjowej</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum laudantium quam aspernatur eum nisi, blanditiis assumenda, aut dolor tempore, mollitia consequatur numquam quos corporis aliquid molestias iusto velit obcaecati id!</p>
+                    </div>
+                </section>
+                <section>
+                    <div className="content">
+                        <h2>heleioafjowej</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum laudantium quam aspernatur eum nisi, blanditiis assumenda, aut dolor tempore, mollitia consequatur numquam quos corporis aliquid molestias iusto velit obcaecati id!</p>
+                    </div>
+                </section>
+                
+            </div>
         </div>
     )
 }

@@ -1,5 +1,3 @@
-@import 'reset.css';
-
 body {
     --light-main-bg: #ffffff;
     --light-main-txt: #000000;
@@ -9,7 +7,6 @@ body {
     --dark-sub-txt: #e6e6e6;
 
     font-family: 'Noto Sans KR', sans-serif !important;
-    overflow-x: hidden;
 
     background-color: var(--light-main-bg);
     -webkit-font-smoothing: antialiased;
