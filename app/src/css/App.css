@@ -22,12 +22,13 @@
     align-items: center;
 }
 
-.container section .content {
+/* 글자 애니메이션 넣을려고 잠깐 삭제함^^ */
+/* .container section .content {
     position: absolute;
     top: 50px;
     left: 50px;
     max-width: 700px;
-}
+} */
 
 .container section .content h1 {
     color: #ffffff;
@@ -47,14 +48,39 @@
 }
 
 .container section:nth-child(1) {
-    background: rgb(165,0,255);
-    background: linear-gradient(90deg, rgba(165,0,255,1) 0%, rgba(128,131,255,1) 100%);
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-/* section {
-    height: 100vh;
-    width: 100vw;
-} */
+.container section:nth-child(1) .content h1 {
+    position: relative;
+    font-size: 6em;
+    color: #222;
+}
+
+.container section:nth-child(1) .content h1::before{
+    content: attr(data-text);
+    position: absolute;
+    color: #fff;
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px soild #fff;
+    animation: animate 8s linear infinite;
+    filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff)
+}
+
+@keyframes animate {
+    0%, 10%, 100% {
+        width: 0;
+    }
+    70%, 90% {
+        width: 100%
+    }
+}
 
 section.dark {
     background-color: var(--dark-main-bg);
