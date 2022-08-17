@@ -33,15 +33,14 @@
 .container section .content h1 {
     color: #ffffff;
     font-weight: 900;
-    line-height: 120%;
+    line-height: 100%;
     display: inline-block;
     padding: 10px 20px;
     font-size: 3rem;
 }
 
 .container section .content p {
-    background: #fff;
-    color: #111;
+    color: #fff;
     font-weight: 600;
     padding: 10px 20px;
     margin-top: 20px;
@@ -56,12 +55,13 @@
 }
 
 .container section:nth-child(1) .content h1 {
+    line-height: 1em;
     position: relative;
     font-size: 6em;
     color: #222;
 }
 
-.container section:nth-child(1) .content h1::before{
+.container section:nth-child(1) .content h1::before {
     content: attr(data-text);
     position: absolute;
     color: #fff;
@@ -80,6 +80,13 @@
     70%, 90% {
         width: 100%
     }
+}
+
+.container section:nth-child(1) .content p {
+    position: relative;
+    top: 0px;
+    font-size: 1em;
+    color: #222;
 }
 
 section.dark {
