@@ -7,6 +7,7 @@ function App() {
                 <section>
                     <div className="content">
                         <h1 data-text="EXON">EXON</h1>
+                        <p>안녕</p>
                     </div>
                 </section>
                 <section>

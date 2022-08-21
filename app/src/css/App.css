@@ -70,7 +70,7 @@
     white-space: nowrap;
     border-right: 4px soild #fff;
     animation: animate 4s ease-out 1;
-    filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff)
+    filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff);
 }
 
 @keyframes animate {
@@ -83,10 +83,12 @@
 }
 
 .container section:nth-child(1) .content p {
-    position: relative;
-    top: 0px;
+    margin-top: -10px;
+    position: absolute;
     font-size: 1em;
-    color: #222;
+    filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff);
+    border-right: 4px soild #fff;
+    color: #fff;
 }
 
 section.dark {
