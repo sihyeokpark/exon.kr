@@ -1,11 +1,11 @@
 @import 'reset.css';
 
 body {
-    --light-main-bg: #ffffff;
-    --light-main-txt: #000000;
+    --light-main-bg: #fff;
+    --light-main-txt: #111;
     --light-sub-txt: #e6e6e6;
-    --dark-main-bg: #000000;
-    --dark-main-txt: #ffffff;
+    --dark-main-bg: #111;
+    --dark-main-txt: #fff;
     --dark-sub-txt: #e6e6e6;
 
     font-family: 'Noto Sans KR', sans-serif !important;

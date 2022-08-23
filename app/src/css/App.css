@@ -18,9 +18,18 @@
     height: 100%;
     scroll-snap-align: start;
     background-blend-mode: multiply;
-    display: flex;
-    align-items: center;
 }
+
+section.dark {
+    background-color: var(--dark-main-bg);
+    color: var(--dark-main-txt);
+}
+
+section.light {
+    background-color: var(--light-main-bg);
+    color: var(--light-main-txt);
+}
+
 
 /* 글자 애니메이션 넣을려고 잠깐 삭제함^^ */
 /* .container section .content {
@@ -40,15 +49,11 @@
 }
 
 .container section .content p {
-    color: #fff;
     font-weight: 600;
-    padding: 10px 20px;
-    margin-top: 20px;
-    margin-left: 5px;
 }
 
 .container section:nth-child(1) {
-    background-color: #111;
+    background-color: var(--dark-main-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,13 +70,13 @@
 .container section:nth-child(1) .content h1::before {
     content: attr(data-text);
     position: absolute;
-    color: #fff;
+    color: var(--dark-main-txt);
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 4px soild #fff;
+    border-right: 4px soild var(--dark-main-txt);
     animation: animate 4s ease-out 1;
-    filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff);
+    filter: drop-shadow(0 0 20px var(--dark-main-txt)) drop-shadow(0 0 50px var(--dark-main-txt));
 }
 
 @keyframes animate {
@@ -85,20 +90,30 @@
 
 .container section:nth-child(1) .content p {
     margin-top: -10px;
+    margin-left: 5px;
+    padding: 10px 20px;
     position: absolute;
     font-size: 1em;
-    filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff);
-    border-right: 4px soild #fff;
-    color: #fff;
-}
-
-section.dark {
-    background-color: var(--dark-main-bg);
+    filter: drop-shadow(0 0 20p var(--dark-main-txt)) drop-shadow(0 0 50px var(--dark-main-txt));
+    border-right: 4px soild var(--dark-main-txt);
     color: var(--dark-main-txt);
 }
 
-section.light {
-    background-color: var(--light-main-bg);
-    color: var(--light-main-txt);
+
+.container section:nth-child(2) .content h1 {
+    margin-left: 300px;
+    line-height: 1em;
+    position: relative;
+    font-size: 4em;
+    color: #222;
 }
 
+.line {
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 10px solid #64a8ff;
+    box-shadow: inset 0 -20px 0 #64a8ff;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
