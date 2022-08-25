@@ -99,9 +99,19 @@ section.light {
     color: var(--dark-main-txt);
 }
 
+.container section:nth-child(2) .content {
+    margin: auto;
+    align-items: center;
+    min-height: 100vh;
+}
 
-.container section:nth-child(2) .content h1 {
-    margin-left: 300px;
+.container section:nth-child(2) .content .main {
+    display: inline;
+}
+
+
+.container section:nth-child(2) .content .main h1 {
+    display: inline;
     line-height: 1em;
     position: relative;
     font-size: 4em;

@@ -6,8 +6,10 @@ function App() {
             <div className='container'>
                 <section className='dark'>
                     <div className='content'>
-                        <h1 data-text='EXON'>EXON</h1>
-                        <p>안녕하세요. 박시혁입니다.</p>
+                        <div className='main'>
+                            <h1 data-text='EXON'>EXON</h1>
+                            <p>안녕하세요. 박시혁입니다.</p>
+                        </div>
                     </div>
                 </section>
                 <section className='light'>
