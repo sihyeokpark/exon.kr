@@ -108,19 +108,19 @@ section.light {
 }
 
 .container section:nth-child(2) .content h1 {
-    text-transform:uppercase; 
+    text-transform: uppercase; 
     line-height: 1em;
     position: relative;
     font-size: 4em;
-    color: #222;
+    color: var(--light-main-txt);
 }
 
 .container section:nth-child(2) .content h1:after {
-    display:block;
+    display: block;
     content: '';
     transform-origin:  0% 50%;
     margin-top: 5px;
-    border-bottom: solid 5px #222;  
+    border-bottom: solid 5px var(--light-main-txt);  
     transform: scaleX(0);
     transition: transform 500ms ease-in-out;
 }
@@ -129,11 +129,69 @@ section.light {
     transform: scaleX(1);
 }
 
-
 .container section:nth-child(2) .content p {
     padding: 10px 20px;
     line-height: 1em;
     position: relative;
-    font-size: 2em;
-    color: #222;
+    font-size: 1.5em;
+    color: var(--light-main-txt);
+}
+
+.container section:nth-child(3) .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.container section:nth-child(3) .content h1 {
+    line-height: 1em;
+    position: relative;
+    font-size: 4em;
+}
+
+.container section:nth-child(3) .content p {
+    padding: 10px 20px;
+    line-height: 1em;
+    position: relative;
+    font-size: 1em;
+    
+}
+
+.loader {
+    margin-bottom: 10px;
+    position: relative;
+    width: 200px;
+    height: 10px;
+    background-color: #fff;
+    -webkit-box-reflect: below 0px linear-gradient(transparent, #0005);
+}
+
+.loader::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #fb0094, #0000ff, #00ff00, #ffff00, #fb0094, #0000ff, #00ff00, #ffff00, #fb0094);
+    animation: loader 20s linear infinite;
+    background-size: 500%;
+}
+
+.loader::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #fb0094, #0000ff, #00ff00, #ffff00, #fb0094, #0000ff, #00ff00, #ffff00, #fb0094);
+    animation: loader 20s linear infinite;
+    background-size: 500%;
+    filter: blur(20px);
+}
+
+@keyframes loader {
+    0% {
+        background-position: 0 0;
+    }
+    0% {
+        background-position: 500% 0;
+    }
 }
