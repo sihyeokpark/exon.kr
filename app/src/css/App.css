@@ -100,30 +100,24 @@ section.light {
 }
 
 .container section:nth-child(2) .content {
-    margin: auto;
+    display: flex;
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
+    flex-direction: column;
 }
 
-.container section:nth-child(2) .content .main {
-    display: inline;
-}
-
-
-.container section:nth-child(2) .content .main h1 {
-    display: inline;
+.container section:nth-child(2) .content h1 {
     line-height: 1em;
     position: relative;
     font-size: 4em;
     color: #222;
 }
 
-.line {
-    text-decoration: none;
-    font-weight: bold;
-    border-bottom: 10px solid #64a8ff;
-    box-shadow: inset 0 -20px 0 #64a8ff;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
+.container section:nth-child(2) .content p {
+    padding: 10px 20px;
+    line-height: 1em;
+    position: relative;
+    font-size: 2em;
+    color: #222;
 }
