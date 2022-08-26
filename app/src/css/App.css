@@ -108,11 +108,27 @@ section.light {
 }
 
 .container section:nth-child(2) .content h1 {
+    text-transform:uppercase; 
     line-height: 1em;
     position: relative;
     font-size: 4em;
     color: #222;
 }
+
+.container section:nth-child(2) .content h1:after {
+    display:block;
+    content: '';
+    transform-origin:  0% 50%;
+    margin-top: 5px;
+    border-bottom: solid 5px #222;  
+    transform: scaleX(0);
+    transition: transform 500ms ease-in-out;
+}
+
+.container section:nth-child(2) .content h1:hover:after {
+    transform: scaleX(1);
+}
+
 
 .container section:nth-child(2) .content p {
     padding: 10px 20px;
