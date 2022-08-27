@@ -138,6 +138,7 @@ section.light {
 }
 
 .container section:nth-child(3) .content {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -160,9 +161,9 @@ section.light {
 }
 
 .loader {
-    margin-bottom: 10px;
-    position: relative;
-    width: 200px;
+    top: 0px;
+    position: absolute;
+    width: 100vw;
     height: 10px;
     background-color: #fff;
     -webkit-box-reflect: below 0px linear-gradient(transparent, #0005);

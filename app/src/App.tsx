@@ -18,9 +18,10 @@ function App() {
                 </section>
                 <section className='dark'>
                     <div className='content'>
-                        <div className='loader'></div>
+                        
                         <h1>기술스택</h1>
                         <p>JavaScript(TypeScript) Python C# C</p>
+                        <div className='loader'></div>
                     </div>
                 </section>
                 <section>
