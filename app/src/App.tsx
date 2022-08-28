@@ -1,5 +1,10 @@
 import './css/App.css'
 
+import javascript from './images/javascript.png'
+import python from './images/python.png'
+
+import github from './images/github.png'
+
 function App() {
     return (
         <div>
@@ -13,21 +18,28 @@ function App() {
                 <section className='light'>
                     <div className='content'>
                         <h1>쓸데없어 보여도 쓸모 있다.</h1>
+                        <p>중학생 프로그래머입니다.</p>
                         <p>쓸데없는 것처럼 보이지만 누군가에겐 쓸모 있는 프로그램을 개발하고 있습니다.</p>
                     </div>
                 </section>
                 <section className='dark'>
                     <div className='content'>
-                        
-                        <h1>기술스택</h1>
-                        <p>JavaScript(TypeScript) Python C# C</p>
                         <div className='loader'></div>
+                        <h1>Languages & frameworks</h1>
+                        {/* <div className='stack'>
+                            <img src={javascript} height='100px'></img>
+                            <img src={python} height='100px'></img>
+                        </div> */}
+                        <li>Javascript</li>
+                        <p> JavaScript(TypeScript) Python C# C</p>
+                        <p>React.js PyQt5</p>
+                        
                     </div>
                 </section>
-                <section>
+                <section  className='light'>
                     <div className='content'>
-                        <h2>heleioafjowej</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum laudantium quam aspernatur eum nisi, blanditiis assumenda, aut dolor tempore, mollitia consequatur numquam quos corporis aliquid molestias iusto velit obcaecati id!</p>
+                        <h1>연락처</h1>
+                        <a href='https://github.com/1-EXON'><img src={github}></img></a>
                     </div>
                 </section>
                 

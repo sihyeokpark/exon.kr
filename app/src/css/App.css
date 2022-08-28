@@ -130,7 +130,7 @@ section.light {
 }
 
 .container section:nth-child(2) .content p {
-    padding: 10px 20px;
+    padding: 5px 20px;
     line-height: 1em;
     position: relative;
     font-size: 1.5em;
@@ -139,32 +139,35 @@ section.light {
 
 .container section:nth-child(3) .content {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     flex-direction: column;
 }
 
 .container section:nth-child(3) .content h1 {
+    margin-top: 10px;
     line-height: 1em;
     position: relative;
-    font-size: 4em;
+    font-size: 1em;
 }
 
-.container section:nth-child(3) .content p {
+.container section:nth-child(3) .content li::marker {
+    content: '>>';
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.container section:nth-child(3) .content li {
     padding: 10px 20px;
     line-height: 1em;
     position: relative;
     font-size: 1em;
-    
 }
 
 .loader {
     top: 0px;
     position: absolute;
     width: 100vw;
-    height: 10px;
+    height: 1px;
     background-color: #fff;
     -webkit-box-reflect: below 0px linear-gradient(transparent, #0005);
 }
@@ -195,4 +198,25 @@ section.light {
     0% {
         background-position: 500% 0;
     }
+}
+
+.container section:nth-child(4) .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.container section:nth-child(4) .content h1 {
+    line-height: 1em;
+    position: relative;
+    font-size: 4em;
+    color: var(--light-main-txt);
+}
+
+.container section:nth-child(4) .content img {
+    position: relative;
+    height: 50px;
 }
