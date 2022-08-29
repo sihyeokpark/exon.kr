@@ -17,8 +17,11 @@ function App() {
                 </section>
                 <section className='light'>
                     <div className='content'>
+                        <p>{new Date().getFullYear() - 2007 + 1}살({(() => {
+                            const date = new Date()
+                            return ((date.getMonth()+1 === 10 && date.getDate() >= 22) ? date.getFullYear() - 2007 : (date.getMonth()+1 > 10) ? date.getFullYear() - 2007 : date.getFullYear() - 2007 - 1)
+                        })()}) 중학생 프로그래머입니다.</p>
                         <h1>쓸데없어 보여도 쓸모 있다.</h1>
-                        <p>중학생 프로그래머입니다.</p>
                         <p>쓸데없는 것처럼 보이지만 누군가에겐 쓸모 있는 프로그램을 개발하고 있습니다.</p>
                     </div>
                 </section>
