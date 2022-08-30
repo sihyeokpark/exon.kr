@@ -214,7 +214,13 @@ section.light {
     color: var(--light-main-txt);
 }
 
-.container section:nth-child(4) .content img {
+.container section:nth-child(4) .content a {
+    color: #222;
     position: relative;
-    height: 50px;
+    text-decoration: none;
+    padding-bottom: 3px;
+    font-size: 1.1em;
 }
+
+a:link { color: #111; }
+a:hover { color: #111; }

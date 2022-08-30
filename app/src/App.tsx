@@ -49,8 +49,9 @@ function App() {
                 </section>
                 <section  className='light'>
                     <div className='content'>
-                        <h1>연락처</h1>
-                        <a href='https://github.com/1-EXON'><img src={github}></img></a>
+                        <h1>Contact</h1>
+                        <a href='https://github.com/1-EXON'>Github</a>
+                        <a href='https://discord.com/users/774607106732326922'>Discord</a>
                     </div>
                 </section>
                 
