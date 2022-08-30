@@ -60,6 +60,30 @@ section.light {
     min-height: 100vh;
 }
 
+.bar {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 30px;
+    bottom: 5rem;
+    left: 4rem;
+}
+
+.discord {
+    margin-bottom: 5px;
+    height: 15px;
+    fill: #fff;
+}
+
+.github {
+    margin-top: 20px;
+    height: 20px;
+    fill: #fff;
+
+}
+
+
+
 .container section:nth-child(1) .content h1 {
     line-height: 1em;
     position: relative;
