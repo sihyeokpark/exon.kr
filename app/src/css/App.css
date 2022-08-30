@@ -139,6 +139,9 @@ section.light {
 
 .container section:nth-child(3) .content {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     flex-direction: column;
 }
@@ -147,17 +150,12 @@ section.light {
     margin-top: 10px;
     line-height: 1em;
     position: relative;
-    font-size: 1em;
+    font-size: 3em;
 }
 
-.container section:nth-child(3) .content li::marker {
-    content: '>>';
-    font-size: 1.2em;
-    margin-right: 10px;
-}
-
-.container section:nth-child(3) .content li {
-    padding: 10px 20px;
+.container section:nth-child(3) .content p {
+    float: left;
+    padding: 5px 20px;
     line-height: 1em;
     position: relative;
     font-size: 1em;

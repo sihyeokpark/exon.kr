@@ -20,7 +20,7 @@ function App() {
                         <p>{new Date().getFullYear() - 2007 + 1}살({(() => {
                             const date = new Date()
                             return ((date.getMonth()+1 === 10 && date.getDate() >= 22) ? date.getFullYear() - 2007 : (date.getMonth()+1 > 10) ? date.getFullYear() - 2007 : date.getFullYear() - 2007 - 1)
-                        })()}) 중학생 프로그래머입니다.</p>
+                        })()}) 학생 프로그래머입니다.</p>
                         <h1>쓸데없어 보여도 쓸모 있다.</h1>
                         <p>쓸데없는 것처럼 보이지만 누군가에겐 쓸모 있는 프로그램을 개발하고 있습니다.</p>
                     </div>
@@ -28,15 +28,23 @@ function App() {
                 <section className='dark'>
                     <div className='content'>
                         <div className='loader'></div>
-                        <h1>Languages & frameworks</h1>
-                        {/* <div className='stack'>
-                            <img src={javascript} height='100px'></img>
-                            <img src={python} height='100px'></img>
-                        </div> */}
-                        <li>Javascript</li>
-                        <p> JavaScript(TypeScript) Python C# C</p>
-                        <p>React.js PyQt5</p>
-                        
+                        <div className='center'>
+                            <h1>Languages & Frameworks</h1>
+                            {/* <div className='stack'>
+                                <img src={javascript} height='100px'></img>
+                                <img src={python} height='100px'></img>
+                            </div> */}
+                            <div className='float'>
+                                <p>JavaScript</p>
+                                <p>TypeScript</p>
+                                <p>Python</p>
+                                <p>C#</p>
+                                <p>C</p>
+                                
+                                <p>React.js</p>
+                                <p>PyQt5</p>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <section  className='light'>
