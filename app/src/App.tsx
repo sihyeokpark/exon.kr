@@ -54,12 +54,17 @@ function App() {
                 </section>
                 <section  className='light'>
                     <div className='content'>
+                        <h1>Awards</h1>
+                        <p>{'>>'} 2022 한국코드페어 해커톤 본선 진출</p>
+                    </div>
+                </section>
+                <section className='dark'>
+                    <div className='content'>
                         <h1>Contact</h1>
                         <a href='https://github.com/1-EXON'>Github</a>
                         <a href='https://discord.com/users/774607106732326922'>Discord</a>
                     </div>
                 </section>
-                
             </div>
         </div>
     )

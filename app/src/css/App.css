@@ -81,8 +81,6 @@ section.light {
     fill: #fff;
 }
 
-
-
 .container section:nth-child(1) .content h1 {
     line-height: 1em;
     position: relative;
@@ -238,6 +236,31 @@ section.light {
 }
 
 .container section:nth-child(4) .content a {
+    color: #222;
+    position: relative;
+    font-weight: 300;
+    text-decoration: none;
+    padding-bottom: 3px;
+    font-size: 1.1em;
+}
+
+.container section:nth-child(5) .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.container section:nth-child(5) .content h1 {
+    line-height: 1em;
+    position: relative;
+    font-size: 4em;
+    color: var(--light-main-txt);
+}
+
+.container section:nth-child(5) .content a {
     color: #222;
     position: relative;
     text-decoration: none;
