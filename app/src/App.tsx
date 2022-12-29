@@ -6,7 +6,7 @@ function App() {
             <div className='container'>
                 <section>
                     <p className='name'>SIHYEOK PARK</p>
-                    <h1 className='title'>Extremely Very Good and Best</h1>
+                    <h1 className='title'>for</h1>
                     <p>박시혁</p>
                 </section>
             </div>

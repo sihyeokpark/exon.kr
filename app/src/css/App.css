@@ -32,7 +32,7 @@
 .container section:nth-child(1) .title {
     font-size: 6vh;
     margin-bottom: 3vh;
-    padding: 5px 2px;
+    padding: 10px 10px 15px 10px;
     color: var(--light-sub-txt);
     background-color: var(--light-main-txt);
 }
