@@ -55,7 +55,7 @@ function App() {
                 <section  className='light'>
                     <div className='content'>
                         <h1>Awards</h1>
-                        <p>{'>>'} 2022 한국코드페어 해커톤 본선 진출</p>
+                        <p>{'>>'} 2022 한국코드페어 해커톤 중등부 대상</p>
                     </div>
                 </section>
                 <section className='dark'>
