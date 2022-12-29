@@ -36,3 +36,30 @@
     color: var(--light-sub-txt);
     background-color: var(--light-main-txt);
 }
+
+.container section .title {
+    white-space: pre-wrap;
+}
+
+.container section.contents {
+    padding: 5vw 5vw;
+}
+
+.container section.contents .name {
+    margin-bottom: 3vh;
+    font-weight: 600;
+}
+
+.container section.contents .title {
+    font-size: 6vh;
+    margin-bottom: 3vh;
+    padding: 10px 10px 15px 10px;
+    color: var(--light-sub-txt);
+    background-color: var(--light-main-txt);
+}
+
+.container section.contents li {
+    padding: 10px 10px 15px 10px;
+    color: var(--light-main-txt);
+    line-height: 1.3;
+}

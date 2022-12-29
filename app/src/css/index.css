@@ -20,3 +20,7 @@ body {
 ::selection {
     background-color: #cccccc;
 }
+
+strong {
+    font-weight: 700;
+}
