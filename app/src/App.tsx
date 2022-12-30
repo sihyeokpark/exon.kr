@@ -23,9 +23,7 @@ function App() {
                 <section className='contents'>
                     <p className='name'>프로젝트</p>
                     <h1 className='title'>Projects</h1>
-                    <ul>
-                        <li>얼굴인식을 이용한 학생 출석 관리 프로그램 <sup>2022.3~2022.10</sup></li>
-                    </ul>
+                    <li>얼굴인식을 이용한 학생 출석 관리 프로그램 <sup>2022.3~2022.10</sup></li>
                 </section>
             </div>
         </div>
