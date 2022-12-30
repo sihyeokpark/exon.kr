@@ -24,3 +24,19 @@ body {
 strong {
     font-weight: 700;
 }
+
+sup {
+    font-weight: 500;
+    font-size: small;
+    vertical-align: super;
+    color: #7e8696;
+}
+
+li {
+    font-size: 1.05rem;
+    list-style: disc;
+}
+
+li::marker {
+    color: var(--light-main-txt);
+}
