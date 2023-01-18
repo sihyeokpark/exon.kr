@@ -1,11 +1,11 @@
 @import 'reset.css';
 
 body {
-    --light-main-bg: #fff;
-    --light-main-txt: #182c61;
-    --light-sub-txt: #e6e6e6;
+    --main-bg: #000000;
+    --main-txt: #ffffff;
+    --sub-txt: #e6e6e6;
 
-    font-family: 'Noto Sans KR', sans-serif !important;
+    font-family: 'Pretendard', sans-serif !important;
 
     background-color: var(--light-main-bg);
     -webkit-font-smoothing: antialiased;

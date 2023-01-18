@@ -1,70 +1,55 @@
-* {
-    margin: 0;
-    padding: 0;
+body {
+    background-color: var(--main-bg);
+    color: var(--main-txt);
+    margin: 0 auto;
+    max-width: 720px;
+    min-width: 720px;
 }
 
-.container section {
-    height: 100vh;
+.app {
+    text-align: center;
 }
 
-.container section h1 {
-    font-weight: 800;
-    color: var(--light-main-txt);
+nav {
+    position: fixed;
+    height: fit-content;
+    width: fit-content;
+    margin: 10px 40px;
+    padding: 10px 20px;
+    border-radius: 10px 10px;
+    border: #414141 solid 1px;
 }
 
-.container section p {
-    font-weight: 400;
-    color: var(--light-main-txt);
+nav h1 {
+    font-size: 2rem;
+    font-weight: 600;
 }
 
-.container section:nth-child(1) {
+.logos {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 5vw;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding-top: 100px;
 }
 
-.container section:nth-child(1) .name {
-    margin-bottom: 3vh;
-    font-weight: 600;
+
+.logos img {
+    vertical-align: middle;
+    height: 300px;
+    animation-name: logo;
+    animation-duration: 2s;
 }
 
-.container section:nth-child(1) .title {
-    font-size: 6vh;
-    margin-bottom: 3vh;
-    padding: 10px 10px 15px 10px;
-    color: var(--light-sub-txt);
-    background-color: var(--light-main-txt);
+.logos img:nth-child(2) {
+    margin-left: -900px;
 }
 
-.container section .title {
-    white-space: pre-wrap;
-}
-
-.container section.contents {
-    padding: 5vw 5vw;
-}
-
-.container section.contents .name {
-    margin-bottom: 3vh;
-    font-weight: 600;
-}
-
-.container section.contents .title {
-    font-size: 6vh;
-    margin-bottom: 3vh;
-    padding: 10px 10px 15px 10px;
-    color: var(--light-sub-txt);
-    background-color: var(--light-main-txt);
-}
-
-.container section.contents li {
-    padding: 10px 10px 5px 0px;
-    color: var(--light-main-txt);
-    line-height: 1;
-}
-
-.container section.contents li li {
-    padding: 10px 10px 5px 30px;
-    line-height: 1;
+@keyframes logo {
+    0% {
+        margin-left: -900px;
+    }
+    100% {
+        margin-right: 100px;
+    }
 }
