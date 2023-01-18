@@ -2,11 +2,13 @@ body {
     background-color: var(--main-bg);
     color: var(--main-txt);
     margin: 0 auto;
-    max-width: 720px;
-    min-width: 720px;
+    text-align: center;
 }
 
 .app {
+    margin: 0 auto;
+    max-width: 720px;
+    min-width: 720px;
     text-align: center;
 }
 
@@ -25,31 +27,59 @@ nav h1 {
     font-weight: 600;
 }
 
+section:nth-child(1) {
+
+}
+
+section h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.logos h1 {
+    position: absolute;
+    text-align: center;
+}
+
 .logos {
+    max-width: 720px;
+    min-width: 720px;
+    width: 720px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     text-align: center;
     padding-top: 100px;
 }
 
-
 .logos img {
     vertical-align: middle;
-    height: 300px;
-    animation-name: logo;
+    height: 200px;
+}
+
+.logos img.logo1 {
+    animation-name: logo1;
     animation-duration: 2s;
 }
 
-.logos img:nth-child(2) {
-    margin-left: -900px;
+.logos img.logo2 {
+    animation-name: logo2;
+    animation-duration: 2s;
 }
 
-@keyframes logo {
+@keyframes logo1 {
     0% {
-        margin-left: -900px;
+        transform: translateX(200px)
     }
     100% {
-        margin-right: 100px;
+        transform: translateX(0px)
+    }
+}
+
+@keyframes logo2 {
+    0% {
+        transform: translateX(-200px)
+    }
+    100% {
+        transform: translateX(0px)
     }
 }

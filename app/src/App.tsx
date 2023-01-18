@@ -8,10 +8,10 @@ function App() {
             <nav>
                 <h1>EXON</h1>
             </nav>
-            {/* <div className='logos'>
-                <img src={logo1}></img>
-                <img src={logo2}></img>
-            </div> */}
+            <div className='logos'>
+                <img src={logo1} className='logo1'></img>
+                <img src={logo2} className='logo2'></img>
+            </div>
             <section>
                 <h1>Hello, I am Sihyeok Park</h1>
             </section>

@@ -42,3 +42,8 @@ li {
 li::marker {
     color: var(--light-main-txt);
 }
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
