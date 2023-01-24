@@ -1,16 +1,17 @@
 import './css/App.css'
-import logo1 from './images/1.png'
-import logo2 from './images/2.png'
 import logo from './images/logo.png'
 
 function App() {
     return (
         <>
-            <div className='app'>
-                <nav>
+            <nav>
+                <div className='center'>
                     <img src={logo}></img>
                     <h1>exon.kr</h1>
-                </nav>
+                </div>
+            </nav>
+            <div className='app'>
+                
                 {/* <div className='logos'>
                     <img src={logo1} className='logo1'></img>
                     <img src={logo2} className='logo2'></img>

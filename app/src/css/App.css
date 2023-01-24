@@ -11,7 +11,7 @@ body {
     text-align: left;
 }
 
-nav {
+/* nav {
     display: flex;
     position: fixed;
     gap: 20px;
@@ -26,13 +26,37 @@ nav {
     background-color: rgba(0,0,0,0.70);
     backdrop-filter: saturate(120%) blur(18px);
     transition: all 0.1s ease-in-out;
+} */
+
+nav {
+    height: fit-content;
+    transition: all 0.1s ease-in-out;
+    position: fixed;
+    width: 100%;
+    margin: 0px 0px;
+    border-radius: 0;
+    padding: 15px 30px;
+    border-bottom: #414141 solid 1px;
+    box-shadow: 0 2px 12px rgb(0 0 0 / 40%);
+    background-color: rgba(0,0,0,0.70);
+    backdrop-filter: saturate(120%) blur(18px);
+    text-align: center;
 }
 
-nav img {
+.center {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1080px;
+    text-align: left;
+}
+
+nav .center img {
     height: 50px;
 }
 
-nav h1 {
+nav .center h1 {
     font-size: 1.8rem;
     font-weight: 600;
 }
