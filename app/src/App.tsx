@@ -26,17 +26,13 @@ function App() {
                             : (date.getMonth()+1 > 10) ? date.getFullYear() - 2007 : date.getFullYear() - 2007 - 1)
                         })()} in Korean age).
                         And I am a student at Korea Digital Media High School.
+                        I enjoy breaking challenges and thinking outside the box.
                     </p>
                 </section>
                 <section>
                     <h1>Project</h1>
                     <p>
-                        I'm Hacker who is into Full-Stack Web, Hacking and Deeplearning.
-                        Currently {new Date().getFullYear() - 2007 + 1}-years-old({(() => {
-                        const date = new Date()
-                        return ((date.getMonth()+1 === 10 && date.getDate() >= 22) ? date.getFullYear() - 2007
-                            : (date.getMonth()+1 > 10) ? date.getFullYear() - 2007 : date.getFullYear() - 2007 - 1)
-                        })()} in Korean age).
+
                     </p>
                 </section>
             </div>
