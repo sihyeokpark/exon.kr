@@ -25,14 +25,6 @@ strong {
     font-weight: 700;
 }
 
-sup {
-    font-weight: 500;
-    font-size: small;
-    vertical-align: super;
-    color: #7e8696;
-    font-size: calc(5px + 0.7vmin);
-}
-
 li {
     text-size-adjust: 100%;
     list-style: disc;

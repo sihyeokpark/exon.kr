@@ -17,7 +17,7 @@ function App() {
                     <img src={logo2} className='logo2'></img>
                 </div> */}
                 <section className='top'>
-                    <h1><span className='light' data-text={'Hi, I\'m Sihyeok Park —'}>Hi, I'm Sihyeok Park —</span><br/> <span className='light' data-text='known as EXON'>known as EXON</span></h1>
+                    <h1 className='title'><span className='light' data-text={'Hi, I\'m Sihyeok Park —'}>Hi, I'm Sihyeok Park —</span><br/> <span className='light' data-text='known as EXON'>known as EXON</span></h1>
                     <p className='intro'>
                         I'm Hacker who is into Full-Stack Web, Hacking and Deeplearning.
                         Currently {new Date().getFullYear() - 2007 + 1}-years-old({(() => {
@@ -30,9 +30,11 @@ function App() {
                     </p>
                 </section>
                 <section>
-                    <h1>Project</h1>
+                    <h1>The 4th Korea-CodeFair Grand Prize <sup>2022.12</sup></h1>
                     <p>
-
+                        I won the 4th Korea-CodeFair Hackathon Grand Prize in Middle School Division with my team, Wonkyu Go, Seungsoo Kim.
+                        We made project that can detect items in a convenience store and speak out the name of the item for the visually impaired.
+                        this project was made with Python, Tensorflow, and pure Javascript.
                     </p>
                 </section>
             </div>
