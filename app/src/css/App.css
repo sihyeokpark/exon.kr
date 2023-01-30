@@ -1,7 +1,6 @@
 body {
     background-color: var(--main-bg);
     color: var(--main-txt);
-    margin: 0 auto;
     text-align: center;
 }
 
@@ -20,11 +19,11 @@ nav {
     border-radius: 0;
     padding: 15px 30px;
     border-bottom: #414141 solid 1px;
-    box-shadow: 0 2px 12px rgb(0 0 0 / 40%);
     background-color: rgba(0,0,0,0.70);
     backdrop-filter: saturate(120%) blur(18px);
     text-align: center;
     z-index: 1;
+    box-shadow: 0px 20px 30px 10px rgba(0, 0, 0, 0.6);
 }
 
 .center {
@@ -86,7 +85,6 @@ span.light::before {
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 4px soild var(--main-txt);
     animation: animate 10s ease-out 1;
     filter: drop-shadow(0 0 10px var(--main-txt)) drop-shadow(0 0 100px var(--main-txt));
 }
@@ -134,6 +132,10 @@ p.intro {
     border-radius: 10px;
 }
 
+.link {
+    color: #166fec;
+}
+
 @media screen and (max-width: 720px) {
     nav {
         position: fixed;
@@ -143,7 +145,7 @@ p.intro {
         padding: 15px 30px;
         border: none;
         border-bottom: #414141 solid 1px;
-        box-shadow: 0 2px 12px rgb(0 0 0 / 40%);
+        box-shadow: 0px 20px 30px 10px rgba(0, 0, 0, 0.6);
         background-color: rgba(0,0,0,0.70);
         backdrop-filter: saturate(120%) blur(18px);
     }

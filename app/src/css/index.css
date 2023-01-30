@@ -19,6 +19,7 @@ body {
 
 ::selection {
     background-color: #cccccc;
+    color: #000000;
 }
 
 strong {
