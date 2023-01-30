@@ -124,6 +124,16 @@ p.intro {
     margin-bottom: 10px;
 }
 
+.both {
+    display: flex;
+    gap: 30px;
+}
+
+.codefair {
+    height: 300px;
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 720px) {
     nav {
         position: fixed;
@@ -136,6 +146,15 @@ p.intro {
         box-shadow: 0 2px 12px rgb(0 0 0 / 40%);
         background-color: rgba(0,0,0,0.70);
         backdrop-filter: saturate(120%) blur(18px);
+    }
+
+    .both {
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .both .right {
+        text-align: center;
     }
 }
 

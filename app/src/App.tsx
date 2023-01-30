@@ -1,6 +1,7 @@
 import './css/App.css'
 import logo from './images/logo.png'
 import award from './images/medal.png'
+import codefair from './images/codefair.jpg'
 
 function App() {
     return (
@@ -29,16 +30,23 @@ function App() {
                     </p>
                 </section>
                 <section>
-                    <h1>The 4th Korea-CodeFair <sup>2022.12</sup></h1>
-                    <div className='award'>
-                        <img src={award} height='30px'></img>
-                        <span>The 4th Korea-CodeFair <strong>Grand Prize</strong></span>
+                    <div className='both'>
+                        <div className='left'>
+                            <h1>The 4th Korea-CodeFair <sup>2022.12</sup></h1>
+                            <div className='award'>
+                                <img src={award} height='30px'></img>
+                                <span>The 4th Korea-CodeFair Hackathon <strong>Grand Prize(1st)</strong> in Middle School Division</span>
+                            </div>
+                            <p>
+                                I won the 4th Korea-CodeFair Hackathon Grand Prize in Middle School Division with my team "Coding Without Hand", Wonkyu Go, Seungsoo Kim.
+                                We made project that can detect items in a convenience store and speak out the name of the item for the visually impaired.
+                                this project was made with Python, Tensorflow, and pure Javascript.
+                            </p>
+                        </div>
+                        <div className='right'>
+                            <img src={codefair} className='codefair'></img>
+                        </div>
                     </div>
-                    <p>
-                        I won the 4th Korea-CodeFair Hackathon Grand Prize in Middle School Division with my team "Coding Without Hand", Wonkyu Go, Seungsoo Kim.
-                        We made project that can detect items in a convenience store and speak out the name of the item for the visually impaired.
-                        this project was made with Python, Tensorflow, and pure Javascript.
-                    </p>
                 </section>
             </div>
         </>
