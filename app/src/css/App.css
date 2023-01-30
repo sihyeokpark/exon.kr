@@ -136,6 +136,28 @@ p.intro {
     color: #166fec;
 }
 
+.discord {
+    color: #ffffff;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0a0a0a;
+    border-radius: 10px;
+}
+
+.instagram {
+    color: #ffffff;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 720px) {
     nav {
         position: fixed;
