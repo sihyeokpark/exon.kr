@@ -11,23 +11,6 @@ body {
     text-align: left;
 }
 
-/* nav {
-    display: flex;
-    position: fixed;
-    gap: 20px;
-    height: fit-content;
-    width: fit-content;
-    align-items: center;
-    margin: 10px 0px;
-    padding: 8px 30px;
-    border-radius: 8px;
-    border: #414141 solid 1px;
-    box-shadow: 0 2px 12px rgb(0 0 0 / 40%);
-    background-color: rgba(0,0,0,0.70);
-    backdrop-filter: saturate(120%) blur(18px);
-    transition: all 0.1s ease-in-out;
-} */
-
 nav {
     height: fit-content;
     transition: all 0.1s ease-in-out;
@@ -41,6 +24,7 @@ nav {
     background-color: rgba(0,0,0,0.70);
     backdrop-filter: saturate(120%) blur(18px);
     text-align: center;
+    z-index: 1;
 }
 
 .center {
@@ -63,6 +47,7 @@ nav .center h1 {
 
 section {
     padding: 10px 20px;
+    margin-bottom: 150px;
 }
 
 section h1 {
@@ -74,6 +59,7 @@ section h1 {
 
 section.top {
     padding-top: 150px;
+    margin-bottom: 0px;
 }
 
 h1.title {
@@ -115,7 +101,7 @@ span.light::before {
 }
 
 section p {
-    margin-bottom: 100px;
+    margin-bottom: 10px;
     font-size: 1em;
     line-height: 1.5em;
 }
@@ -124,6 +110,18 @@ p.intro {
     font-size: 1.2em;
     line-height: 1.5em;
     color: var(--sub-txt);
+    margin-bottom: 100px;
+}
+
+.award {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px 10px;
+    border: #faa515 solid 2px;
+    gap: 20px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width: 720px) {
