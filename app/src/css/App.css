@@ -136,26 +136,57 @@ p.intro {
     color: #166fec;
 }
 
-.discord {
+svg {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.plat {
     color: #ffffff;
     width: 4rem;
     height: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0a0a0a;
     border-radius: 10px;
 }
 
 .instagram {
-    color: #ffffff;
-    width: 4rem;
-    height: 4rem;
+    background-image: linear-gradient(72.44deg, #ff7a00 11.92%, #ff0169 51.56%, #d300c5 85.69%);
+}
+
+.discord {
+    background-color: #5865f2;
+}
+
+.email {
+    background-color: #ef4444;
+}
+
+.github {
+    background-color: #0a0a0a;
+}
+
+.contact {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: #f0f0f0;
-    border-radius: 10px;
+    gap: 20px;
+}
+
+.contact .user {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+}
+
+.user .platform {
+    font-size: 0.8rem;
+    color: var(--sub-txt);
+}
+
+.contactList {
+    display: flex;
+    gap: 50px;
 }
 
 @media screen and (max-width: 720px) {
@@ -179,6 +210,11 @@ p.intro {
 
     .both .right {
         text-align: center;
+    }
+
+    .contactList {
+        flex-direction: column;
+        gap: 20px;
     }
 }
 
