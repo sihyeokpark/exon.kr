@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.73136d66.css",
-    "main.js": "/static/js/main.a64af6c0.js",
+    "main.css": "/static/css/main.caf8063b.css",
+    "main.js": "/static/js/main.ecf01f8e.js",
+    "static/media/codefair.jpg": "/static/media/codefair.3fbed0a433e65b47522a.jpg",
+    "static/media/medal.png": "/static/media/medal.a25e14914a6c2941848f.png",
+    "static/media/logo.png": "/static/media/logo.f94e357c115644b42102.png",
     "index.html": "/index.html",
-    "main.73136d66.css.map": "/static/css/main.73136d66.css.map",
-    "main.a64af6c0.js.map": "/static/js/main.a64af6c0.js.map"
+    "main.caf8063b.css.map": "/static/css/main.caf8063b.css.map",
+    "main.ecf01f8e.js.map": "/static/js/main.ecf01f8e.js.map"
   },
   "entrypoints": [
-    "static/css/main.73136d66.css",
-    "static/js/main.a64af6c0.js"
+    "static/css/main.caf8063b.css",
+    "static/js/main.ecf01f8e.js"
   ]
 }
