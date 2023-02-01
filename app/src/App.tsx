@@ -46,7 +46,7 @@ function App() {
                             </p>
                         </div>
                         <div className='right'>
-                            <img src={codefair} className='codefair'></img>
+                            <img src={codefair} alt='When I attended Codefair.' className='codefair'></img>
                         </div>
                     </div>
                 </section>
@@ -66,7 +66,7 @@ function App() {
                             </p>
                         </div>
                         <div className='right'>
-                            <img src={autoattendence} className='autoattendence'></img>
+                            <img src={autoattendence} alt='When I was making this project.' className='autoattendence'></img>
                         </div>
                     </div>
                 </section>
