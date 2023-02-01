@@ -135,7 +135,12 @@ p.intro {
     border-radius: 10px;
 }
 
-.link {
+.autoattendence {
+    height: 300px;
+    border-radius: 10px;
+}
+
+a {
     color: #166fec;
 }
 

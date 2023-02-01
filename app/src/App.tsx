@@ -2,10 +2,8 @@ import './css/App.css'
 
 import logo from './images/logo.png'
 import award from './images/medal.png'
-import codefair from './images/codefair.jpg'
-
-import discord from './images/contact/discord.svg'
-import instagram from './images/contact/instagram.svg'
+import codefair from './images/project/codefair.jpg'
+import autoattendence from './images/project/autoattendence.jpg'
 
 function App() {
     return (
@@ -43,12 +41,32 @@ function App() {
                             </div>
                             <p>
                                 I won the 4th Korea-CodeFair Hackathon Grand Prize in Middle School Division with my team "Coding Without Hand", Wonkyu Go, Seungsoo Kim.
-                                We made <a href='https://github.com/codingWithoutHand/ConvenienceStoreForVisuallyImpaired' target='_blank' className='link'>project</a> that can detect items in a convenience store and speak out the name of the item for the visually impaired.
+                                We made <a href='https://github.com/codingWithoutHand/ConvenienceStoreForVisuallyImpaired' target='_blank'>project</a> that can detect items in a convenience store and speak out the name of the item for the visually impaired.
                                 this project was made with Python, Pytorch, Selenium, and pure Javascript.
                             </p>
                         </div>
                         <div className='right'>
                             <img src={codefair} className='codefair'></img>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div className='both'>
+                        <div className='left'>
+                            <h1>Auto Attendance Check <sup>2022.10</sup></h1>
+                            <p>
+                                I made auto <a href='https://github.com/EXON-Archive-Junior-High/AutoAttendance/settings' target='_blank'>Attendance Check Project</a> with PyQt and Java.
+                                It is made for my school.
+                                The feature of this project is that it can automatically check attendance through face recognition and exchange a message to the teacher.
+                                Also have sceduler for the student that is managed by teacher.
+                                It supports Windows, Android.
+                            </p>
+                            <p>
+                                
+                            </p>
+                        </div>
+                        <div className='right'>
+                            <img src={autoattendence} className='autoattendence'></img>
                         </div>
                     </div>
                 </section>
