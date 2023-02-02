@@ -40,7 +40,7 @@ function App() {
                                 <span>The 4th Korea-CodeFair Hackathon <strong>Grand Prize(1st)</strong> in Middle School Division</span>
                             </div>
                             <p>
-                                I won the 4th Korea-CodeFair Hackathon Grand Prize in Middle School Division with my team "Coding Without Hand", Wonkyu Go, Seungsoo Kim.
+                                I won the 4th Korea-CodeFair Hackathon Grand Prize in Middle School Division with my team "Coding Without Hand", Wongyu Koh, Seungsoo Kim.
                                 We made <a href='https://github.com/codingWithoutHand/ConvenienceStoreForVisuallyImpaired' target='_blank'>project</a> that can detect items in a convenience store and speak out the name of the item for the visually impaired.
                                 this project was made with Python, Pytorch, Selenium, and pure Javascript.
                             </p>
