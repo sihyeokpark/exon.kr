@@ -100,6 +100,47 @@ span.light::before {
     }
 }
 
+section.new {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    margin-bottom: 100px;
+}
+
+section.new button {
+    display: flex;
+    border: none;
+    font-size: 1.2rem;
+    background-color: transparent;
+    color: var(--main-txt);
+    vertical-align: middle;
+    gap: 0px;
+    animation: gapAnimate2 0.5s ease-out 1;
+}
+
+section.new button:hover {
+    animation: gapAnimate 0.5s ease-out 1;
+    gap: 20px;
+}
+
+@keyframes gapAnimate2 {
+    0% {
+        gap: 20px;
+    }
+    100% {
+        gap: 0px;
+    }
+}
+
+@keyframes gapAnimate {
+    0% {
+        gap: 0px;
+    }
+    100% {
+        gap: 20px;
+    }
+}
+
 section p {
     margin-bottom: 10px;
     font-size: 1em;

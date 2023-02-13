@@ -2,6 +2,8 @@ import './css/App.css'
 
 import logo from './images/logo.png'
 import award from './images/medal.png'
+import brace1 from './images/brace1.png'
+import brace2 from './images/brace2.png'
 import codefair from './images/project/codefair.jpg'
 import autoattendence from './images/project/autoattendence.jpg'
 
@@ -69,6 +71,9 @@ function App() {
                             <img src={autoattendence} alt='When I was making this project.' className='autoattendence'></img>
                         </div>
                     </div>
+                </section>
+                <section className='new'>
+                    <button><span><img src={brace1} height='20px'></img></span>See more project<span><img src={brace2} height='20px'></img></span></button>
                 </section>
                 <section>
                     <h1>Contect <sup>You can contact me</sup></h1>
