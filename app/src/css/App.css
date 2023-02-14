@@ -48,6 +48,16 @@ nav .center h1 {
 section {
     padding: 10px 20px;
     margin-bottom: 150px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 section h1 {
@@ -114,21 +124,12 @@ section.new button {
     background-color: transparent;
     color: var(--main-txt);
     vertical-align: middle;
-    gap: 0px;
+    gap: 3px;
     transition: 0.3s;
 }
 
-section.new button:hover {
+section.new button:hover, section.new button:active {
     gap: 20px;
-}
-
-@keyframes gapAnimate {
-    0% {
-        gap: 0px;
-    }
-    100% {
-        gap: 20px;
-    }
 }
 
 section p {
@@ -231,7 +232,7 @@ svg {
     gap: 30px;
 }
 
-@media screen and (max-width: 820px) {
+@media (width <= 820px) {
     nav {
         position: fixed;
         width: 100%;

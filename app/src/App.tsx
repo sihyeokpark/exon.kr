@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import './css/App.css'
 
 import logo from './images/logo.png'
@@ -8,6 +10,12 @@ import codefair from './images/project/codefair.jpg'
 import autoattendence from './images/project/autoattendence.jpg'
 
 function App() {
+    const [moreSection, setMoreSection] = useState(false)
+
+    function moreSectionClick() {
+        setMoreSection(true)
+    }
+
     return (
         <>
             <nav>
@@ -72,9 +80,33 @@ function App() {
                         </div>
                     </div>
                 </section>
-                <section className='new'>
-                    <button><span><img src={brace1} height='20px'></img></span>See more project<span><img src={brace2} height='20px'></img></span></button>
-                </section>
+                {!moreSection && 
+                    <section className='new'>
+                        <button onClick={moreSectionClick}><span><img src={brace1} height='20px'></img></span>See more project<span><img src={brace2} height='20px'></img></span></button>
+                    </section>
+                }
+                {moreSection && 
+                    <section>
+                        <div className='both'>
+                            <div className='left'>
+                                <h1>Auto Attendance Check <sup>2022.10</sup></h1>
+                                <p>
+                                    I made auto <a href='https://github.com/EXON-Archive-Junior-High/AutoAttendance/settings' target='_blank'>Attendance Check Project</a> with PyQt and Java.
+                                    It is made for my school.
+                                    The feature of this project is that it can automatically check attendance through face recognition and exchange a message to the teacher.
+                                    Also have sceduler for the student that is managed by teacher.
+                                    It supports Windows, Android.
+                                </p>
+                                <p>
+                                    
+                                </p>
+                            </div>
+                            <div className='right'>
+                                <img src={autoattendence} alt='When I was making this project.' className='autoattendence'></img>
+                            </div>
+                        </div>
+                    </section>
+                }
                 <section>
                     <h1>Contect <sup>You can contact me</sup></h1>
                     <div className='contactList'>
