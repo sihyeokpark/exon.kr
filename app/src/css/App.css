@@ -115,21 +115,11 @@ section.new button {
     color: var(--main-txt);
     vertical-align: middle;
     gap: 0px;
-    animation: gapAnimate2 0.5s ease-out 1;
+    transition: 0.3s;
 }
 
 section.new button:hover {
-    animation: gapAnimate 0.5s ease-out 1;
     gap: 20px;
-}
-
-@keyframes gapAnimate2 {
-    0% {
-        gap: 20px;
-    }
-    100% {
-        gap: 0px;
-    }
 }
 
 @keyframes gapAnimate {
