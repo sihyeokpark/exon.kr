@@ -6,6 +6,8 @@ import logo from './images/logo.png'
 import award from './images/medal.png'
 import brace1 from './images/brace1.png'
 import brace2 from './images/brace2.png'
+import goorm from './images/project/goorm.jpg'
+import genetic from './images/project/genetic.gif'
 import codefair from './images/project/codefair.jpg'
 import autoattendence from './images/project/autoattendence.jpg'
 
@@ -14,6 +16,7 @@ function App() {
 
     function moreSectionClick() {
         setMoreSection(true)
+        // window.scrollTo({top: 0, behavior: 'smooth' })
     }
 
     return (
@@ -44,6 +47,24 @@ function App() {
                 <section>
                     <div className='both'>
                         <div className='left'>
+                            <h1>Groom High School<br></br> Algorithm Camp <sup>2023.02</sup></h1>
+                            <div className='award'>
+                                <img src={award} height='30px'></img>
+                                <span>The Groom High School Algorithm Team Challenge <strong>Grand Prize(1st)</strong> in Gyeonggi-Do Division</span>
+                            </div>
+                            <p>
+                                I won the <a href='https://exon001.tistory.com/5'>Groom High School Algorithm Team Challenge</a> Grand Prize in Gyeonggi-Do Division with my team "Coding With Hand", Boseok Son, Minseo Kim, Sooyoon Kim.
+                                We listened to a lecture about DFS, BFS algorithm and participated in a contest.
+                            </p>
+                        </div>
+                        <div className='right'>
+                            <img src={goorm} alt='When I was making this project.' className='autoattendence'></img>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div className='both'>
+                        <div className='left'>
                             <h1>The 4th Korea-CodeFair <sup>2022.12</sup></h1>
                             <div className='award'>
                                 <img src={award} height='30px'></img>
@@ -65,7 +86,7 @@ function App() {
                         <div className='left'>
                             <h1>Auto Attendance Check <sup>2022.10</sup></h1>
                             <p>
-                                I made auto <a href='https://github.com/EXON-Archive-Junior-High/AutoAttendance/settings' target='_blank'>Attendance Check Project</a> with PyQt and Java.
+                                I made <a href='https://github.com/EXON-Archive-Junior-High/AutoAttendance' target='_blank'>Auto Attendance Check Project</a> with PyQt and Java.
                                 It is made for my school.
                                 The feature of this project is that it can automatically check attendance through face recognition and exchange a message to the teacher.
                                 Also have sceduler for the student that is managed by teacher.
@@ -82,27 +103,26 @@ function App() {
                 </section>
                 {!moreSection && 
                     <section className='new'>
-                        <button onClick={moreSectionClick}><span><img src={brace1} height='20px'></img></span>See more project<span><img src={brace2} height='20px'></img></span></button>
+                        <button onClick={moreSectionClick}><span><img src={brace1} height='20px'></img></span>See more projects<span><img src={brace2} height='20px'></img></span></button>
                     </section>
                 }
-                {moreSection && 
+                {moreSection &&
                     <section>
                         <div className='both'>
                             <div className='left'>
-                                <h1>Auto Attendance Check <sup>2022.10</sup></h1>
+                                <h1>Genetic Algorithm <sup>2022.07</sup></h1>
                                 <p>
-                                    I made auto <a href='https://github.com/EXON-Archive-Junior-High/AutoAttendance/settings' target='_blank'>Attendance Check Project</a> with PyQt and Java.
-                                    It is made for my school.
-                                    The feature of this project is that it can automatically check attendance through face recognition and exchange a message to the teacher.
-                                    Also have sceduler for the student that is managed by teacher.
-                                    It supports Windows, Android.
+                                    I implemented <a href='https://github.com/EXON-Archive-Junior-High/GeneticAlgorithm' target='_blank'>Genetic Algorithm</a> with Pure Javascript.
+                                    It is for my school performance evaluation.
+                                    Watched <a href='https://www.youtube.com/watch?v=Yr_nRnqeDp0' target='_blank'>this video</a> and I wanted to really learn it.
+                                    So I knew that it is used in Machine Learning, it was departure point for Machine Learning to me.
                                 </p>
                                 <p>
                                     
                                 </p>
                             </div>
                             <div className='right'>
-                                <img src={autoattendence} alt='When I was making this project.' className='autoattendence'></img>
+                                <img src={genetic} alt='When I was making this project.' className='autoattendence'></img>
                             </div>
                         </div>
                     </section>
