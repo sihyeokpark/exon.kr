@@ -53,7 +53,7 @@ function App() {
                                 <span>The Groom High School Algorithm Team Challenge <strong>Grand Prize(1st)</strong> in Gyeonggi-Do Division</span>
                             </div>
                             <p>
-                                I won the <a href='https://exon001.tistory.com/5'>Groom High School Algorithm Team Challenge</a> Grand Prize in Gyeonggi-Do Division with my team "Coding With Hand", Boseok Son, Minseo Kim, Sooyoon Kim.
+                                I won the <a href='https://exon001.tistory.com/5'>Groom High School Algorithm Team Challenge</a> Grand Prize in Gyeonggi-Do Division with my team "Coding With Hand", Boseok Son, Minseo Kim, Suyun Kim.
                                 We listened to a lecture about DFS, BFS algorithm and participated in a contest.
                             </p>
                         </div>
@@ -128,7 +128,7 @@ function App() {
                     </section>
                 }
                 <section>
-                    <h1>Contect <sup>You can contact me</sup></h1>
+                    <h1>Contact <sup>You can contact me</sup></h1>
                     <div className='contactList'>
                         <div className='contact' onClick={() => window.location.href = 'mailto:exon.indiv@gmail.com'}>
                             <div className='plat email'>
