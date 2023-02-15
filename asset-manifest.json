@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ca94f5ec.css",
-    "main.js": "/static/js/main.25bc779b.js",
+    "main.js": "/static/js/main.e93537aa.js",
     "static/media/genetic.gif": "/static/media/genetic.179b7ddd78dd585a40b4.gif",
     "static/media/goorm.jpg": "/static/media/goorm.71eaf3c4e9847032f123.jpg",
     "static/media/autoattendence.jpg": "/static/media/autoattendence.a7586ae868cdec17508a.jpg",
@@ -10,10 +10,10 @@
     "static/media/logo.png": "/static/media/logo.f94e357c115644b42102.png",
     "index.html": "/index.html",
     "main.ca94f5ec.css.map": "/static/css/main.ca94f5ec.css.map",
-    "main.25bc779b.js.map": "/static/js/main.25bc779b.js.map"
+    "main.e93537aa.js.map": "/static/js/main.e93537aa.js.map"
   },
   "entrypoints": [
     "static/css/main.ca94f5ec.css",
-    "static/js/main.25bc779b.js"
+    "static/js/main.e93537aa.js"
   ]
 }
