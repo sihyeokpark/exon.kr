@@ -16,7 +16,7 @@ function App() {
 
     function moreSectionClick() {
         setMoreSection(true)
-        // window.scrollTo({top: 0, behavior: 'smooth' })
+        window.scrollTo({top: 0, behavior: 'smooth' })
     }
 
     return (
@@ -34,15 +34,21 @@ function App() {
                         <span className='light' data-text='known as EXON'>known as EXON</span>
                     </h1>
                     <p className='intro'>
-                        I'm Hacker who is into Full-Stack Web, Hacking and Deeplearning.
-                        Currently {(() => {
+                        I'm {(() => {
                         const date = new Date()
                         return ((date.getMonth()+1 === 10 && date.getDate() >= 22) ? date.getFullYear() - 2007
                             : (date.getMonth()+1 > 10) ? date.getFullYear() - 2007 : date.getFullYear() - 2007 - 1)
-                        })()}-years-old({new Date().getFullYear() - 2007 + 1} in Korean age).
-                        And I am a student at Korea Digital Media High School.
-                        I enjoy breaking challenges and thinking outside the box.
+                        })()} years old({new Date().getFullYear() - 2007 + 1} in Korean age) developer from South Korea.
+                        And I am a junior at Korea Digital Media High School.
+                        I enjoy breaking challenges and thinking outside the box. 
                     </p>
+                    {moreSection &&
+                        <p className='intro'>
+                            Also interested in Full-Stack Web, Hacking and Machine Learning.
+                            Among them, my favorite field is Web Development.
+                        </p>
+                    }
+                    
                 </section>
                 <section>
                     <div className='both'>
@@ -103,7 +109,7 @@ function App() {
                 </section>
                 {!moreSection && 
                     <section className='new'>
-                        <button onClick={moreSectionClick}><span><img src={brace1} height='20px'></img></span>See more projects<span><img src={brace2} height='20px'></img></span></button>
+                        <button onClick={moreSectionClick}><span><img src={brace1} height='20px'></img></span>If you want to know me more?<span><img src={brace2} height='20px'></img></span></button>
                     </section>
                 }
                 {moreSection &&

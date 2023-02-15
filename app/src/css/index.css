@@ -18,7 +18,7 @@ body {
 }
 
 ::selection {
-    background-color: #cccccc;
+    background-color: var(--sub-txt);
     color: #000000;
 }
 

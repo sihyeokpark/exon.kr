@@ -69,7 +69,7 @@ section h1 {
 
 section.top {
     padding-top: 150px;
-    margin-bottom: 0px;
+    margin-bottom: 100px;
 }
 
 h1.title {
@@ -142,7 +142,6 @@ p.intro {
     font-size: 1.2em;
     line-height: 1.5em;
     color: var(--sub-txt);
-    margin-bottom: 100px;
 }
 
 .award {
