@@ -53,13 +53,13 @@ function App() {
                 <section>
                     <div className='both'>
                         <div className='left'>
-                            <h1>Groom High School<br></br> Algorithm Camp <sup>2023.02</sup></h1>
+                            <h1>Goorm High School<br></br> Algorithm Camp <sup>2023.02</sup></h1>
                             <div className='award'>
                                 <img src={award} height='30px'></img>
-                                <span>The Groom High School Algorithm Team Challenge <strong>Grand Prize(1st)</strong> in Gyeonggi-Do Division</span>
+                                <span>The Goorm High School Algorithm Team Challenge <strong>Grand Prize(1st)</strong> in Gyeonggi-Do Division</span>
                             </div>
                             <p>
-                                I won the <a href='https://exon001.tistory.com/5'>Groom High School Algorithm Team Challenge</a> Grand Prize in Gyeonggi-Do Division with my team "Coding With Hand", Boseok Son, Minseo Kim, Suyun Kim.
+                                I won the <a href='https://exon001.tistory.com/5'>Goorm High School Algorithm Team Challenge</a> Grand Prize in Gyeonggi-Do Division with my team "Coding With Hand", Boseok Son, Minseo Kim, Suyun Kim.
                                 We listened to a lecture about DFS, BFS algorithm and participated in a contest.
                             </p>
                         </div>
