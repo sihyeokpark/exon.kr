@@ -231,6 +231,23 @@ svg {
     gap: 30px;
 }
 
+p.white {
+    font-size: 1.2em;
+	color: var(--sub-txt);
+    line-height: 1.5em;
+	animation: whiteAnimation 5s ease-out;
+}
+
+@keyframes whiteAnimation {
+	0% {
+		color: #ffffff;
+		filter: drop-shadow(0 0 10px var(--main-txt)) drop-shadow(0 0 10px var(--main-txt));
+	}
+	100% {
+		color: var(--sub-txt);
+	}
+}
+
 @media (width <= 820px) {
     nav {
         position: fixed;

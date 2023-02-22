@@ -43,7 +43,7 @@ function App() {
                         I enjoy breaking challenges and thinking outside the box. 
                     </p>
                     {moreSection &&
-                        <p className='intro'>
+                        <p className='white'>
                             Also interested in Full-Stack Web, Hacking and Machine Learning.
                             Among them, my favorite field is Web Development.
                         </p>
