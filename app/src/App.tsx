@@ -8,6 +8,7 @@ import brace1 from './images/brace1.png'
 import brace2 from './images/brace2.png'
 import goorm from './images/project/goorm.jpg'
 import genetic from './images/project/genetic.gif'
+import tistory from './images/contact/tistory.svg'
 import codefair from './images/project/codefair.jpg'
 import autoattendence from './images/project/autoattendence.jpg'
 
@@ -170,6 +171,15 @@ function App() {
                             <div className='user'>
                                 <span className='platform'>Discord</span>
                                 <span>EXON#3160</span>
+                            </div>
+                        </div>
+                        <div className='contact' onClick={() => window.location.href = 'https://exon001.tistory.com/'}>
+                            <div className='plat tistory'>
+                                <img src={tistory} height="30px"></img>
+                            </div>
+                            <div className='user'>
+                                <span className='platform'>Tistory</span>
+                                <span>exon001</span>
                             </div>
                         </div>
                     </div>
