@@ -20,6 +20,10 @@ function App() {
         window.scrollTo({top: 0, behavior: 'smooth' })
     }
 
+    function goGithub() {
+        window.open('https://github.com/sihyeokpark', '_blank')
+    }
+
     return (
         <>
             <nav>
@@ -65,7 +69,7 @@ function App() {
                             </p>
                         </div>
                         <div className='right'>
-                            <img src={goorm} alt='When I was making this project.' className='autoattendence'></img>
+                            <img src={goorm} alt='When I was making this project.' className='goorm'></img>
                         </div>
                     </div>
                 </section>
@@ -132,6 +136,11 @@ function App() {
                                 <img src={genetic} alt='When I was making this project.' className='autoattendence'></img>
                             </div>
                         </div>
+                    </section>
+                }
+                {moreSection && 
+                    <section className='new'>
+                        <button onClick={goGithub}><span><img src={brace1} height='20px'></img></span>See my other projects<span><img src={brace2} height='20px'></img></span></button>
                     </section>
                 }
                 <section>

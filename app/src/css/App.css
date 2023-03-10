@@ -115,6 +115,12 @@ section.new {
     justify-content: center;
     padding: 10px 20px;
     margin-bottom: 100px;
+    vertical-align: middle;
+}
+
+.goorm {
+    width: 500px;
+    border-radius: 10px;
 }
 
 section.new button {
@@ -126,6 +132,7 @@ section.new button {
     vertical-align: middle;
     gap: 3px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 section.new button:hover, section.new button:active {
@@ -162,12 +169,12 @@ p.intro {
 }
 
 .codefair {
-    height: 300px;
+    width: 200px;
     border-radius: 10px;
 }
 
 .autoattendence {
-    height: 300px;
+    width: 300px;
     border-radius: 10px;
 }
 
@@ -280,6 +287,23 @@ p.white {
         flex-direction: column;
         gap: 10px;
     }
+
+    
+}
+
+@media (width <= 800px) {
+    .goorm {
+        width: 100%;
+    }
+
+    .autoattendence {
+        width: 100%;
+    }
+
+    .kodefair {
+        width: 100%;
+    }
+    
 }
 
 /* .logos h1 {
