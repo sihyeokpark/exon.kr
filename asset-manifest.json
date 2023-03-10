@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.6f80887d.css",
-    "main.js": "/static/js/main.2aa37976.js",
+    "main.css": "/static/css/main.226bd889.css",
+    "main.js": "/static/js/main.6f679812.js",
     "static/media/genetic.gif": "/static/media/genetic.179b7ddd78dd585a40b4.gif",
     "static/media/goorm.jpg": "/static/media/goorm.71eaf3c4e9847032f123.jpg",
     "static/media/autoattendence.jpg": "/static/media/autoattendence.a7586ae868cdec17508a.jpg",
@@ -10,11 +10,11 @@
     "static/media/logo.png": "/static/media/logo.f94e357c115644b42102.png",
     "index.html": "/index.html",
     "static/media/tistory.svg": "/static/media/tistory.89779f2b3fe49ebdfd4d3b0deab39eee.svg",
-    "main.6f80887d.css.map": "/static/css/main.6f80887d.css.map",
-    "main.2aa37976.js.map": "/static/js/main.2aa37976.js.map"
+    "main.226bd889.css.map": "/static/css/main.226bd889.css.map",
+    "main.6f679812.js.map": "/static/js/main.6f679812.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f80887d.css",
-    "static/js/main.2aa37976.js"
+    "static/css/main.226bd889.css",
+    "static/js/main.6f679812.js"
   ]
 }
