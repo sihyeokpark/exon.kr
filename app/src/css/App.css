@@ -182,6 +182,10 @@ a {
     color: #166fec;
 }
 
+a:hover {
+    color: #305bff;
+}
+
 svg {
     width: 2.5rem;
     height: 2.5rem;

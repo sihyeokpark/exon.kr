@@ -40,3 +40,12 @@ h1 {
     font-size: 2rem;
     font-weight: 600;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
