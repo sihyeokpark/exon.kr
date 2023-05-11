@@ -11,6 +11,10 @@ body {
     text-align: left;
 }
 
+.link, .link:hover, .link:active, .link:visited {
+    color: #ffffff;
+}
+
 nav {
     height: fit-content;
     transition: all 0.1s ease-in-out;
