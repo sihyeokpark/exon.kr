@@ -52,7 +52,7 @@ nav .center h1 {
 section {
     padding: 10px 20px;
     margin-bottom: 150px;
-    animation: fadeIn 0.5s ease-in-out;
+    /* animation: fadeIn 0.5s ease-in-out; */
 }
 
 @keyframes fadeIn {

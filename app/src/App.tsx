@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 import './css/App.css'
 
@@ -14,6 +15,16 @@ import autoattendence from './images/project/autoattendence.jpg'
 
 function App() {
     const [moreSection, setMoreSection] = useState(false)
+
+    const sectionVariants = {
+        initial: { opacity: 0, scale: 0.5 },
+        animate: { opacity: 1, scale: 1 },
+        transition: {
+            duration: 0.8,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01]
+        }
+    }
 
     function moreSectionClick() {
         setMoreSection(true)
@@ -55,7 +66,14 @@ function App() {
                     }
                     
                 </section>
-                <section>
+                <motion.section
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.5,
+                      ease: [0, 0.71, 0.2, 1.01]
+                    }}>
                     <div className='both'>
                         <div className='left'>
                             <h1>Goorm High School<br></br> Algorithm Camp <sup>2023.02</sup></h1>
@@ -72,8 +90,15 @@ function App() {
                             <img src={goorm} alt='When I was making this project.' className='goorm'></img>
                         </div>
                     </div>
-                </section>
-                <section>
+                </motion.section>
+                <motion.section
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.5,
+                      ease: [0, 0.71, 0.2, 1.01]
+                    }}>
                     <div className='both'>
                         <div className='left'>
                             <h1>The 4th Korea-CodeFair <sup>2022.12</sup></h1>
@@ -91,8 +116,15 @@ function App() {
                             <img src={codefair} alt='When I attended Codefair.' className='codefair'></img>
                         </div>
                     </div>
-                </section>
-                <section>
+                </motion.section>
+                <motion.section
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.5,
+                      ease: [0, 0.71, 0.2, 1.01]
+                    }}>
                     <div className='both'>
                         <div className='left'>
                             <h1>Auto Attendance Check <sup>2022.10</sup></h1>
@@ -111,14 +143,21 @@ function App() {
                             <img src={autoattendence} alt='When I was making this project.' className='autoattendence'></img>
                         </div>
                     </div>
-                </section>
+                </motion.section>
                 {!moreSection && 
                     <section className='new'>
                         <button onClick={moreSectionClick}><span><img src={brace1} height='20px'></img></span>If you want to know me more?<span><img src={brace2} height='20px'></img></span></button>
                     </section>
                 }
                 {moreSection &&
-                    <section>
+                    <motion.section
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.5,
+                      ease: [0, 0.71, 0.2, 1.01]
+                    }}>
                         <div className='both'>
                             <div className='left'>
                                 <h1>Genetic Algorithm <sup>2022.07</sup></h1>
@@ -136,14 +175,21 @@ function App() {
                                 <img src={genetic} alt='When I was making this project.' className='autoattendence'></img>
                             </div>
                         </div>
-                    </section>
+                    </motion.section>
                 }
                 {moreSection && 
                     <section className='new'>
                         <button onClick={goGithub}><span><img src={brace1} height='20px'></img></span>See my other projects<span><img src={brace2} height='20px'></img></span></button>
                     </section>
                 }
-                <section>
+                <motion.section
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.5,
+                      ease: [0, 0.71, 0.2, 1.01]
+                    }}>
                     <h1>Contact <sup>You can contact me</sup></h1>
                     <div className='contactList'>
                         <a className='link' href='mailto:exon.indiv@gmail.com' target='_blank'>
@@ -202,7 +248,7 @@ function App() {
                             </div>
                         </a>
                     </div>
-                </section>
+                </motion.section>
             </div>
         </>
     )
