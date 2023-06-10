@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 
 import './css/App.css'
 
+import cce from './images/cce.png'
 import logo from './images/logo.png'
 import luna from './images/luna.png'
 import award from './images/medal.png'
@@ -67,6 +68,29 @@ function App() {
                     }
                     
                 </section>
+                { moreSection &&
+                    <motion.section
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{
+                        duration: 0.8,
+                        delay: 0.5,
+                        ease: [0, 0.71, 0.2, 1.01]
+                        }}>
+                        <div className='both'>
+                            <div className='left'>
+                                <h1>2023 CCE <sup>2023.06.10</sup></h1>
+                                <p>
+                                    I participated in the <a href='https://cce.cstec.kr/'>Cyber Conflict Exercise 2023</a> Junior Division and finished 11st with my team "If we win first place, we drop out", Kim Seungchan<sup>KDMHS 22HD</sup>, Yoon Jaeyoung<sup>KDMHS 22HD</sup>, Lee Dohyun.
+                                    We solved five problems, two in the field of web, two of which were in the field of misc, and one in the field of cryptography.
+                                </p>
+                            </div>
+                            <div className='right'>
+                                <img src={cce} alt='When I was making this project.' className='goorm'></img>
+                            </div>
+                        </div>
+                    </motion.section>
+                }
                 <motion.section
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -77,7 +101,7 @@ function App() {
                     }}>
                     <div className='both'>
                         <div className='left'>
-                            <h1>LUNA<sup>2023.03~</sup></h1>
+                            <h1>LUNA <sup>2023.03~</sup></h1>
                             <p>
                                 I am developer of <a href='https://luna.codes'>LUNA</a> 6th.<br></br>
                                 <a href='https://luna.codes'>LUNA</a> is a IT social venture society of Korea Digital Media High School that tries to solve social various problems with IT and create where everyone can live together.
@@ -104,7 +128,7 @@ function App() {
                                 <span>The Goorm High School Algorithm Team Challenge <strong>Grand Prize(1st)</strong> in Gyeonggi-Do Division</span>
                             </div>
                             <p>
-                                I won the <a href='https://exon001.tistory.com/5'>Goorm High School Algorithm Team Challenge</a> Grand Prize in Gyeonggi-Do Division with my team "Coding With Hand", Boseok Son, Minseo Kim, Suyun Kim.
+                                I won the <a href='https://exon001.tistory.com/5'>Goorm High School Algorithm Team Challenge</a> Grand Prize in Gyeonggi-Do Division with my team "Coding With Hand", Boseok Son<sup>GBSWHS 3SD</sup>, Minseo Kim<sup>KDMHS 22WP</sup>, Suyun Kim.
                                 We listened to a lecture about DFS, BFS algorithm and participated in a contest.
                             </p>
                         </div>
