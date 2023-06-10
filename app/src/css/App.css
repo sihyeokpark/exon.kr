@@ -80,7 +80,7 @@ h1.title {
     margin-bottom: 20px;
 }
 
-h1 sup {
+h1 sup, sub{
     font-weight: 700;
     font-size: 0.6em;
     color: var(--sub-txt);

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import './css/App.css'
 
 import logo from './images/logo.png'
+import luna from './images/luna.png'
 import award from './images/medal.png'
 import brace1 from './images/brace1.png'
 import brace2 from './images/brace2.png'
@@ -66,6 +67,27 @@ function App() {
                     }
                     
                 </section>
+                <motion.section
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.5,
+                      ease: [0, 0.71, 0.2, 1.01]
+                    }}>
+                    <div className='both'>
+                        <div className='left'>
+                            <h1>LUNA<sup>2023.03~</sup></h1>
+                            <p>
+                                I am developer of <a href='https://luna.codes'>LUNA</a> 6th.<br></br>
+                                <a href='https://luna.codes'>LUNA</a> is a IT social venture society of Korea Digital Media High School that tries to solve social various problems with IT and create where everyone can live together.
+                            </p>
+                        </div>
+                        <div className='right'>
+                            <img src={luna} alt='When I was making this project.' className='goorm'></img>
+                        </div>
+                    </div>
+                </motion.section>
                 <motion.section
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
