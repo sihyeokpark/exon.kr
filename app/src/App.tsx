@@ -63,7 +63,8 @@ function App() {
                     {moreSection &&
                         <p className='white'>
                             Also interested in Full-Stack Web, Hacking and Machine Learning.
-                            Among them, my favorite field is Web Development.
+                            Among them, my favorite field is Web Development and Web Hacking.
+                            Recently, I am mainly studying Web Hacking.
                         </p>
                     }
                     
