@@ -82,7 +82,7 @@ function App() {
                             <div className='left'>
                                 <h1>2023 CCE <sup>2023.06.10</sup></h1>
                                 <p>
-                                    I participated in the <a href='https://cce.cstec.kr/'>Cyber Conflict Exercise 2023</a> Junior Division and finished 11st with my team "If we win first place, we drop out", <a href='https://github.com/hyjun0407'>Kim Seungchan</a><sup>KDMHS 22HD</sup>, Yoon Jaeyoung<sup>KDMHS 22HD</sup>, Lee Dohyun.
+                                    I participated in the <a href='https://cce.cstec.kr/'>Cyber Conflict Exercise 2023</a> Junior Division and finished 11st with my team "If we win first place, we drop out", <a href='https://github.com/hyjun0407'>Seungchan Kim</a><sup>KDMHS 22HD</sup>, Jaeyoung Yoon<sup>KDMHS 22HD</sup>, Dohyun Lee.
                                     We solved five problems, two in the field of web, two of which were in the field of misc, and one in the field of cryptography.
                                 </p>
                             </div>
