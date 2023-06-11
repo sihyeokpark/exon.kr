@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.8e224e53.css",
-    "main.js": "/static/js/main.59e53160.js",
+    "main.js": "/static/js/main.2d56695c.js",
     "static/media/genetic.gif": "/static/media/genetic.179b7ddd78dd585a40b4.gif",
     "static/media/goorm.jpg": "/static/media/goorm.71eaf3c4e9847032f123.jpg",
     "static/media/luna.png": "/static/media/luna.8258c3c8b9c0df946dbb.png",
@@ -13,10 +13,10 @@
     "index.html": "/index.html",
     "static/media/tistory.svg": "/static/media/tistory.89779f2b3fe49ebdfd4d3b0deab39eee.svg",
     "main.8e224e53.css.map": "/static/css/main.8e224e53.css.map",
-    "main.59e53160.js.map": "/static/js/main.59e53160.js.map"
+    "main.2d56695c.js.map": "/static/js/main.2d56695c.js.map"
   },
   "entrypoints": [
     "static/css/main.8e224e53.css",
-    "static/js/main.59e53160.js"
+    "static/js/main.2d56695c.js"
   ]
 }
