@@ -3,13 +3,14 @@ import { motion } from 'framer-motion'
 
 import './css/App.css'
 
-import cce from './images/cce.png'
 import logo from './images/logo.png'
-import luna from './images/luna.png'
 import award from './images/medal.png'
 import brace1 from './images/brace1.png'
 import brace2 from './images/brace2.png'
+import cce from './images/project/cce.png'
+import luna from './images/project/luna.png'
 import goorm from './images/project/goorm.jpg'
+import dimi6 from './images/project/dimi6.png'
 import genetic from './images/project/genetic.gif'
 import tistory from './images/contact/tistory.svg'
 import codefair from './images/project/codefair.jpg'
@@ -63,12 +64,33 @@ function App() {
                     {moreSection &&
                         <p className='white'>
                             Also interested in Full-Stack Web, Hacking and Machine Learning.
-                            Among them, my favorite field is Web Development and Web Hacking.
-                            Recently, I am mainly studying Web Hacking.
+                            Among them, my favorite field is Web Development.
                         </p>
                     }
                     
                 </section>
+                <motion.section
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.5,
+                      ease: [0, 0.71, 0.2, 1.01]
+                    }}>
+                    <div className='both'>
+                        <div className='left'>
+                            <h1>Dimi6 <sup>2023.04~</sup></h1>
+                            <p>
+                                <a href='https://github.com/sihyeokpark/dimi6'>Dimi6</a> is point system for Korea Digital Media High School first grader of class 6.
+                                It is a system that provides points to the students that follow the rules in the class, and was developed through Typescript, Next 13, and MySQL.
+                                It has convenient functions necessary for school life, such as an exchange where you can purchase ice cream coupons using points, bulletin boards that announce information in the class, meals, and timetables.
+                            </p>
+                        </div>
+                        <div className='right'>
+                            <img src={dimi6} alt='dimi6' className='goorm'></img>
+                        </div>
+                    </div>
+                </motion.section>
                 { moreSection &&
                     <motion.section
                         initial={{ opacity: 0, scale: 0.5 }}
@@ -105,7 +127,7 @@ function App() {
                             <h1>LUNA <sup>2023.03~</sup></h1>
                             <p>
                                 I am developer of <a href='https://luna.codes'>LUNA</a> 6th.<br></br>
-                                <a href='https://luna.codes'>LUNA</a> is a IT social venture society of Korea Digital Media High School that tries to solve social various problems with IT and create where everyone can live together.
+                                LUNA is a IT social venture society of Korea Digital Media High School that tries to solve social various problems with IT and create where everyone can live together.
                             </p>
                         </div>
                         <div className='right'>
