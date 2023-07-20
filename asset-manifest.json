@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/static/css/main.8e224e53.css",
-    "main.js": "/static/js/main.a4c9e5ab.js",
+    "main.js": "/static/js/main.1ee4f841.js",
     "static/media/genetic.gif": "/static/media/genetic.179b7ddd78dd585a40b4.gif",
     "static/media/goorm.jpg": "/static/media/goorm.71eaf3c4e9847032f123.jpg",
     "static/media/luna.png": "/static/media/luna.8258c3c8b9c0df946dbb.png",
+    "static/media/dimi6.png": "/static/media/dimi6.7cdcb3915c7271ecd68c.png",
     "static/media/cce.png": "/static/media/cce.9565ea54b43c7d94f839.png",
     "static/media/autoattendence.jpg": "/static/media/autoattendence.a7586ae868cdec17508a.jpg",
     "static/media/codefair.jpg": "/static/media/codefair.3fbed0a433e65b47522a.jpg",
@@ -13,10 +14,10 @@
     "index.html": "/index.html",
     "static/media/tistory.svg": "/static/media/tistory.89779f2b3fe49ebdfd4d3b0deab39eee.svg",
     "main.8e224e53.css.map": "/static/css/main.8e224e53.css.map",
-    "main.a4c9e5ab.js.map": "/static/js/main.a4c9e5ab.js.map"
+    "main.1ee4f841.js.map": "/static/js/main.1ee4f841.js.map"
   },
   "entrypoints": [
     "static/css/main.8e224e53.css",
-    "static/js/main.a4c9e5ab.js"
+    "static/js/main.1ee4f841.js"
   ]
 }
