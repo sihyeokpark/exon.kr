@@ -57,7 +57,7 @@ function App() {
                         const date = new Date()
                         return ((date.getMonth()+1 === 10 && date.getDate() >= 22) ? date.getFullYear() - 2007
                             : (date.getMonth()+1 > 10) ? date.getFullYear() - 2007 : date.getFullYear() - 2007 - 1)
-                        })()} years old({new Date().getFullYear() - 2007 + 1} in Korean age) developer from South Korea.
+                        })()} yo({new Date().getFullYear() - 2007 + 1} in Korean age) developer from South Korea.
                         And I am a junior at Korea Digital Media High School.
                         I enjoy breaking challenges and thinking outside the box. 
                     </p>
