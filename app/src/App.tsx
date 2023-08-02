@@ -81,7 +81,7 @@ function App() {
                         <div className='left'>
                             <h1>Dimi6 <sup>2023.04~</sup></h1>
                             <p>
-                                <a href='https://github.com/sihyeokpark/dimi6'>Dimi6</a> is point system for Korea Digital Media High School first grader of class 6.
+                                <a href='https://github.com/sihyeokpark/dimi6' target='_blank'>Dimi6</a> is point system for Korea Digital Media High School first grader of class 6.
                                 It is a system that provides points to the students that follow the rules in the class, and was developed through Typescript, Next 13, and MySQL.
                                 It has convenient functions necessary for school life, such as an exchange where you can purchase ice cream coupons using points, bulletin boards that announce information in the class, meals, and timetables.
                             </p>
