@@ -104,7 +104,7 @@ function App() {
                             <div className='left'>
                                 <h1>2023 CCE <sup>2023.06.10</sup></h1>
                                 <p>
-                                    I participated in the <a href='https://cce.cstec.kr/'>Cyber Conflict Exercise 2023</a> Junior Division and finished 11st with my team "If we win first place, we drop out", <a href='https://github.com/hyjun0407'>Seungchan Kim</a><sup>KDMHS 22HD</sup>, Jaeyoung Yoon<sup>KDMHS 22HD</sup>, Dohyun Lee.
+                                    I participated in the <a href='https://cce.cstec.kr/' target='_blank'>Cyber Conflict Exercise 2023</a> Junior Division and finished 11st with my team "If we win first place, we drop out", <a href='https://github.com/hyjun0407'>Seungchan Kim</a><sup>KDMHS 22HD</sup>, Jaeyoung Yoon<sup>KDMHS 22HD</sup>, Dohyun Lee.
                                     We solved five problems, two in the field of web, two of which were in the field of misc, and one in the field of cryptography.
                                 </p>
                             </div>
@@ -126,7 +126,7 @@ function App() {
                         <div className='left'>
                             <h1>LUNA <sup>2023.03~</sup></h1>
                             <p>
-                                I am developer of <a href='https://luna.codes'>LUNA</a> 6th.<br></br>
+                                I am developer of <a href='https://luna.codes' target='_blank'>LUNA</a> 6th.<br></br>
                                 LUNA is a IT social venture society of Korea Digital Media High School that tries to solve social various problems with IT and create where everyone can live together.
                             </p>
                         </div>
@@ -151,7 +151,7 @@ function App() {
                                 <span>The Goorm High School Algorithm Team Challenge <strong>Grand Prize(1st)</strong> in Gyeonggi-Do Division</span>
                             </div>
                             <p>
-                                I won the <a href='https://exon001.tistory.com/5'>Goorm High School Algorithm Team Challenge</a> Grand Prize in Gyeonggi-Do Division with my team "Coding With Hand", Boseok Son<sup>GBSWHS 3SD</sup>, Minseo Kim<sup>KDMHS 22WP</sup>, Suyun Kim.
+                                I won the <a href='https://exon001.tistory.com/5' target='_blank'>Goorm High School Algorithm Team Challenge</a> Grand Prize in Gyeonggi-Do Division with my team "Coding With Hand", Boseok Son<sup>GBSWHS 3SD</sup>, Minseo Kim<sup>KDMHS 22WP</sup>, Suyun Kim.
                                 We listened to a lecture about DFS, BFS algorithm and participated in a contest.
                             </p>
                         </div>
