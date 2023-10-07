@@ -122,9 +122,15 @@ section.new {
     vertical-align: middle;
 }
 
-.goorm {
-    width: 500px;
+.right img {
+    height: 260px;
     border-radius: 10px;
+}
+
+.right {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
 }
 
 section.new button {
@@ -170,16 +176,6 @@ p.intro {
 .both {
     display: flex;
     gap: 30px;
-}
-
-.codefair {
-    width: 200px;
-    border-radius: 10px;
-}
-
-.autoattendence {
-    width: 300px;
-    border-radius: 10px;
 }
 
 a {

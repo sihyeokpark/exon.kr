@@ -3,18 +3,7 @@ import { motion } from 'framer-motion'
 
 import './css/App.css'
 
-import logo from './images/logo.png'
-import award from './images/medal.png'
-import brace1 from './images/brace1.png'
-import brace2 from './images/brace2.png'
-import cce from './images/project/cce.png'
-import luna from './images/project/luna.png'
-import goorm from './images/project/goorm.jpg'
-import dimi6 from './images/project/dimi6.png'
-import genetic from './images/project/genetic.gif'
-import tistory from './images/contact/tistory.svg'
-import codefair from './images/project/codefair.jpg'
-import autoattendence from './images/project/autoattendence.jpg'
+import { getImage, getProjectImage } from './lib/getImage'
 
 function App() {
     const [moreSection, setMoreSection] = useState(false)
@@ -42,7 +31,7 @@ function App() {
         <>
             <nav>
                 <div className='center'>
-                    <img src={logo}></img>
+                    <img src={getImage('logo.png')}></img>
                     <h1>exon.kr</h1>
                 </div>
             </nav>
@@ -69,6 +58,73 @@ function App() {
                     }
                     
                 </section>
+                { moreSection &&
+                    <motion.section
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{
+                        duration: 0.8,
+                        delay: 0.5,
+                        ease: [0, 0.71, 0.2, 1.01]
+                        }}>
+                        <div className='both'>
+                            <div className='left'>
+                                <h1>WACON 2023 <sup>2023.09.25-26</sup></h1>
+                                <p>
+                                    I participated in the <a href='https://wacon.world/' target='_blank'>WACON 2023</a> Junior Division as <a href='http://st3p.exon.kr' target='_blank'>Team ST3P</a> composed of Jonghwi Park<sup>KDMHS 22HD</sup>, Solwoo Song<sup>KDMHS 22HD</sup> and Jaeyoung Yoon<sup>KDMHS 22HD</sup>.
+                                    WACON 2023 is an international hacking competition(CTF) involving the world's best hackers to publicize the importance of cybersecurity to ordinary users and to find ways to effectively respond to increasingly advanced online hacking to companies and governments.
+                                </p>
+                            </div>
+                            <div className='right'>
+                                <img src={getProjectImage('wacon.jpg')} alt='wacon'></img>
+                            </div>
+                        </div>
+                    </motion.section>
+                }
+                <motion.section
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.5,
+                      ease: [0, 0.71, 0.2, 1.01]
+                    }}>
+                    <div className='both'>
+                        <div className='left'>
+                            <h1>Junction Asia 2023 <sup>2023.08.18~20</sup></h1>
+                            <p>
+                                I participated in the <a href='https://www.hackjunction.com/' target='_blank'>Junction Asia 2023</a> as Team Quantum composed of members of LUNA.
+                                JUNCTION ASIA 2023 is a hackathon party where people from all over the world come together for three days to break the limits of various creators.                            </p>
+                        </div>
+                        <div className='right'>
+                            <img src={getProjectImage('junction1.jpg')} alt='junction asia'></img>
+                            <img src={getProjectImage('junction2.jpg')} alt='junction asia'></img>
+                        </div>
+                    </div>
+                </motion.section>
+                { moreSection &&
+                    <motion.section
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{
+                        duration: 0.8,
+                        delay: 0.5,
+                        ease: [0, 0.71, 0.2, 1.01]
+                        }}>
+                        <div className='both'>
+                            <div className='left'>
+                                <h1>Hello New() World 2023 <sup>2023.08.3-4</sup></h1>
+                                <p>
+                                    I participated in the <a href='http://hellonewworld.co.kr/' target='_blank'>Hello New() World</a> as Team NEON composed of members of LUNA.
+                                    Hello New World is a hackathon for teenagers to use IT technology to solve social problems.
+                                </p>
+                            </div>
+                            <div className='right'>
+                                <img src={getProjectImage('hnw.jpg')} alt='When I was making this project.'></img>
+                            </div>
+                        </div>
+                    </motion.section>
+                }
                 <motion.section
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -87,11 +143,11 @@ function App() {
                             </p>
                         </div>
                         <div className='right'>
-                            <img src={dimi6} alt='dimi6' className='goorm'></img>
+                            <img src={getProjectImage('dimi6.png')} alt='dimi6'></img>
                         </div>
                     </div>
                 </motion.section>
-                { moreSection &&
+                {/* { moreSection &&
                     <motion.section
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -109,11 +165,11 @@ function App() {
                                 </p>
                             </div>
                             <div className='right'>
-                                <img src={cce} alt='When I was making this project.' className='goorm'></img>
+                                <img src={cce} alt='When I was making this project.'></img>
                             </div>
                         </div>
                     </motion.section>
-                }
+                } */}
                 <motion.section
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -131,7 +187,7 @@ function App() {
                             </p>
                         </div>
                         <div className='right'>
-                            <img src={luna} alt='When I was making this project.' className='goorm'></img>
+                            <img src={getProjectImage('luna.png')} alt='When I was making this project.'></img>
                         </div>
                     </div>
                 </motion.section>
@@ -147,7 +203,7 @@ function App() {
                         <div className='left'>
                             <h1>Goorm High School<br></br> Algorithm Camp <sup>2023.02</sup></h1>
                             <div className='award'>
-                                <img src={award} height='30px'></img>
+                                <img src={getImage('medal.png')} height='30px'></img>
                                 <span>The Goorm High School Algorithm Team Challenge <strong>Grand Prize(1st)</strong> in Gyeonggi-Do Division</span>
                             </div>
                             <p>
@@ -156,7 +212,7 @@ function App() {
                             </p>
                         </div>
                         <div className='right'>
-                            <img src={goorm} alt='When I was making this project.' className='goorm'></img>
+                            <img src={getProjectImage('goorm.jpg')} alt='When I was making this project.'></img>
                         </div>
                     </div>
                 </motion.section>
@@ -172,7 +228,7 @@ function App() {
                         <div className='left'>
                             <h1>The 4th Korea-CodeFair <sup>2022.12</sup></h1>
                             <div className='award'>
-                                <img src={award} height='30px'></img>
+                                <img src={getImage('medal.png')} height='30px'></img>
                                 <span>The 4th Korea-CodeFair Hackathon <strong>Grand Prize(1st)</strong> in Middle School Division</span>
                             </div>
                             <p>
@@ -182,7 +238,7 @@ function App() {
                             </p>
                         </div>
                         <div className='right'>
-                            <img src={codefair} alt='When I attended Codefair.' className='codefair'></img>
+                            <img src={getProjectImage('codefair.jpg')} alt='When I attended Codefair.'></img>
                         </div>
                     </div>
                 </motion.section>
@@ -209,13 +265,13 @@ function App() {
                             </p>
                         </div>
                         <div className='right'>
-                            <img src={autoattendence} alt='When I was making this project.' className='autoattendence'></img>
+                            <img src={getProjectImage('autoattendence.jpg')} alt='When I was making this project.'></img>
                         </div>
                     </div>
                 </motion.section>
                 {!moreSection && 
                     <section className='new'>
-                        <button onClick={moreSectionClick}><span><img src={brace1} height='20px'></img></span>If you want to know me more?<span><img src={brace2} height='20px'></img></span></button>
+                        <button onClick={moreSectionClick}><span><img src={getImage('brace1.png')} height='20px'></img></span>If you want to know me more?<span><img src={getImage('brace2.png')} height='20px'></img></span></button>
                     </section>
                 }
                 {moreSection &&
@@ -241,14 +297,14 @@ function App() {
                                 </p>
                             </div>
                             <div className='right'>
-                                <img src={genetic} alt='When I was making this project.' className='autoattendence'></img>
+                                <img src={getProjectImage('genetic.gif')} alt='When I was making this project.'></img>
                             </div>
                         </div>
                     </motion.section>
                 }
                 {moreSection && 
                     <section className='new'>
-                        <button onClick={goGithub}><span><img src={brace1} height='20px'></img></span>See my other projects<span><img src={brace2} height='20px'></img></span></button>
+                        <button onClick={goGithub}><span><img src={getImage('brace1.png')} height='20px'></img></span>See my other projects<span><img src={getImage('brace2.png')} height='20px'></img></span></button>
                     </section>
                 }
                 <motion.section
@@ -308,7 +364,7 @@ function App() {
                         <a className='link' href='https://exon001.tistory.com/' target='_blank'>
                             <div className='contact'>
                                 <div className='plat tistory'>
-                                    <img src={tistory} height="30px"></img>
+                                    <img src={getImage('contact/tistory.svg')} height="30px"></img>
                                 </div>
                                 <div className='user'>
                                     <span className='platform'>Tistory</span>
