@@ -285,6 +285,13 @@ p.white {
 
     .both .right {
         text-align: center;
+        width: 100%;
+        overflow: auto;
+    }
+
+    .both .right img:first-child:nth-last-child(1) {
+        height: auto;
+        width: 100%;
     }
 
     .contactList {
@@ -294,22 +301,6 @@ p.white {
 
     
 }
-
-@media (width <= 800px) {
-    .goorm {
-        width: 100%;
-    }
-
-    .autoattendence {
-        width: 100%;
-    }
-
-    .kodefair {
-        width: 100%;
-    }
-    
-}
-
 /* .logos h1 {
     position: absolute;
     text-align: center;
