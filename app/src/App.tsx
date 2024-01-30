@@ -58,7 +58,7 @@ function App() {
                     }
                     
                 </section>
-                { moreSection &&
+                {/* { moreSection && */}
                     <motion.section
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -80,7 +80,7 @@ function App() {
                             </div>
                         </div>
                     </motion.section>
-                }
+                {/* } */}
                 <motion.section
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -102,7 +102,7 @@ function App() {
                         </div>
                     </div>
                 </motion.section>
-                { moreSection &&
+                {/* { moreSection && */}
                     <motion.section
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -124,7 +124,7 @@ function App() {
                             </div>
                         </div>
                     </motion.section>
-                }
+                {/* } */}
                 <motion.section
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -269,12 +269,12 @@ function App() {
                         </div>
                     </div>
                 </motion.section>
-                {!moreSection && 
+                {/* {!moreSection && 
                     <section className='new'>
                         <button onClick={moreSectionClick}><span><img src={getImage('brace1.png')} height='20px'></img></span>If you want to know me more?<span><img src={getImage('brace2.png')} height='20px'></img></span></button>
                     </section>
-                }
-                {moreSection &&
+                } */}
+                {/* {moreSection && */}
                     <motion.section
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -301,12 +301,12 @@ function App() {
                             </div>
                         </div>
                     </motion.section>
-                }
-                {moreSection && 
+                {/* } */}
+                {/* {moreSection &&  */}
                     <section className='new'>
                         <button onClick={goGithub}><span><img src={getImage('brace1.png')} height='20px'></img></span>See my other projects<span><img src={getImage('brace2.png')} height='20px'></img></span></button>
                     </section>
-                }
+                {/* } */}
                 <motion.section
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
