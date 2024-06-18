@@ -94,7 +94,7 @@ function App() {
                             <h1>Junction Asia 2023 <sup>2023.08.18~20</sup></h1>
                             <p>
                                 I participated in the <a href='https://www.hackjunction.com/' target='_blank'>Junction Asia 2023</a> as Team Quantum composed of members of LUNA.
-                                JUNCTION ASIA 2023 is a hackathon party where people from all over the world come together for three days to break the limits of various creators.                            </p>
+                                Junction Asia is a hackathon party where people from all over the world come together for three days to break the limits of various creators.                            </p>
                         </div>
                         <div className='right'>
                             <img src={getProjectImage('junction1.jpg')} alt='junction asia'></img>
@@ -116,7 +116,7 @@ function App() {
                                 <h1>Hello New() World 2023 <sup>2023.08.3-4</sup></h1>
                                 <p>
                                     I participated in the <a href='http://hellonewworld.co.kr/' target='_blank'>Hello New() World</a> as Team NEON composed of members of LUNA.
-                                    Hello New World is a hackathon for teenagers to use IT technology to solve social problems.
+                                    This is a hackathon for teenagers to use IT technology to solve social problems.
                                 </p>
                             </div>
                             <div className='right'>
@@ -135,7 +135,7 @@ function App() {
                     }}>
                     <div className='both'>
                         <div className='left'>
-                            <h1>Dimi6 <sup>2023.04~</sup></h1>
+                            <h1>Dimi6 <sup>2023.04~09</sup></h1>
                             <p>
                                 <a href='https://github.com/sihyeokpark/dimi6' target='_blank'>Dimi6</a> is point system for Korea Digital Media High School first grader of class 6.
                                 It is a system that provides points to the students that follow the rules in the class, and was developed through Typescript, Next 13, and MySQL.
@@ -187,7 +187,7 @@ function App() {
                             </p>
                         </div>
                         <div className='right'>
-                            <img src={getProjectImage('luna.png')} alt='When I was making this project.'></img>
+                            <img src={getProjectImage('luna.png')} alt='Luna'></img>
                         </div>
                     </div>
                 </motion.section>
@@ -208,11 +208,11 @@ function App() {
                             </div>
                             <p>
                                 I won the <a href='https://exon001.tistory.com/5' target='_blank'>Goorm High School Algorithm Team Challenge</a> Grand Prize in Gyeonggi-Do Division with my team "Coding With Hand", Boseok Son<sup>GBSWHS 3SD</sup>, Minseo Kim<sup>KDMHS 22WP</sup>, Suyun Kim.
-                                We listened to a lecture about DFS, BFS algorithm and participated in a contest.
+                                We listened to a lecture about DFS, BFS algorithm and participated in a competition.
                             </p>
                         </div>
                         <div className='right'>
-                            <img src={getProjectImage('goorm.jpg')} alt='When I was making this project.'></img>
+                            <img src={getProjectImage('goorm.jpg')} alt='Goorm High School'></img>
                         </div>
                     </div>
                 </motion.section>
@@ -233,8 +233,8 @@ function App() {
                             </div>
                             <p>
                                 I won the 4th Korea-CodeFair Hackathon Grand Prize in Middle School Division with my team "Coding Without Hand", Wongyu Koh, Seungsoo Kim.
-                                We made <a href='https://github.com/codingWithoutHand/ConvenienceStoreForVisuallyImpaired' target='_blank'>project</a> that can detect items in a convenience store and speak out the name of the item for the visually impaired.
-                                this project was made with Python, Pytorch, Selenium, and pure Javascript.
+                                We made a <a href='https://github.com/codingWithoutHand/ConvenienceStoreForVisuallyImpaired' target='_blank'>project</a> that can detect items in a convenience store and speak out the name of the item for the visually impaired.
+                                this project was made with Python, Pytorch, Selenium, and Javascript.
                             </p>
                         </div>
                         <div className='right'>
