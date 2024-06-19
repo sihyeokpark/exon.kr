@@ -315,7 +315,7 @@ function App() {
                       delay: 0.5,
                       ease: [0, 0.71, 0.2, 1.01]
                     }}>
-                    <h1>Contact <sup>You can contact me</sup></h1>
+                    <h1>Contact</h1>
                     <div className='contactList'>
                         <a className='link' href='mailto:exon.indiv@gmail.com' target='_blank'>
                             <div className='contact'>
