@@ -357,7 +357,7 @@ function App() {
                                 </div>
                                 <div className='user'>
                                     <span className='platform'>Discord</span>
-                                    <span>EXON#3160</span>
+                                    <span>sihyeokpark</span>
                                 </div>
                             </div>
                         </a>
@@ -369,6 +369,17 @@ function App() {
                                 <div className='user'>
                                     <span className='platform'>Tistory</span>
                                     <span>exon001</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a className='link' href='https://blog.exon.kr/' target='_blank'>
+                            <div className='contact'>
+                                <div className='plat tistory'>
+                                    <img src={getImage('contact/exon.jpg')} height="30px"></img>
+                                </div>
+                                <div className='user'>
+                                    <span className='platform'>Blog</span>
+                                    <span>exon</span>
                                 </div>
                             </div>
                         </a>
