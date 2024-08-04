@@ -324,7 +324,7 @@ function App() {
                                 </div>
                                 <div className='user'>
                                     <span className='platform'>E-mail</span>
-                                    <span>exon.indiv@gmail.com</span>
+                                    <span>exon.indiv</span>
                                 </div>
                             </div>
                         </a>
@@ -374,8 +374,7 @@ function App() {
                         </a>
                         <a className='link' href='https://blog.exon.kr/' target='_blank'>
                             <div className='contact'>
-                                <div className='plat tistory'>
-                                    <img src={getImage('contact/exon.jpg')} height="30px"></img>
+                                <div className='plat blog'>
                                 </div>
                                 <div className='user'>
                                     <span className='platform'>Blog</span>

@@ -217,6 +217,11 @@ svg {
     background-color: #ef4444;
 }
 
+.blog {
+    background-image: url('../../public/images/contact/exon.jpg');
+    background-size: cover;
+}
+
 .github {
     background-color: #0a0a0a;
 }
