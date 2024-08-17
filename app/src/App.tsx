@@ -58,6 +58,28 @@ function App() {
                     }
                     
                 </section>
+                <motion.section
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                    duration: 0.8,
+                    delay: 0.5,
+                    ease: [0, 0.71, 0.2, 1.01]
+                    }}>
+                    <div className='both'>
+                        <div className='left'>
+                            <h1>Junction Asia 2024 <sup>2024.08.9~11</sup></h1>
+                            <p>
+                                <a href='https://eu.junctionplatform.com/events/junction-asia-2024' target='_blank'>Junction Asia 2024</a> is a hackathon party where people from all over the world come together for three days to break the limits of various creators.
+                                Our team(Luuuuna) made "Dr.Travel" that is a platform that make travel traffic more easily and cheaply by using DRT Bus.
+                            </p>
+                        </div>
+                        <div className='right'>
+                            <img src={getProjectImage('junction2024_pizza.jpg')} alt='junction'></img>
+                            <img src={getProjectImage('junction2024.jpg')} alt='junction'></img>
+                        </div>
+                    </div>
+                </motion.section>
                 {/* { moreSection && */}
                     <motion.section
                         initial={{ opacity: 0, scale: 0.5 }}
