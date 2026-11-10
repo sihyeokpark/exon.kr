@@ -107,23 +107,6 @@ main { max-width: var(--page-width); margin: 0 auto; padding: 0 24px 56px; }
 }
 .chip:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; background: var(--accent-soft); }
 
-/* ---------- 3D keyboard figure ---------- */
-.kbd-figure { margin: 6px 0 30px; }
-.kbd-stage {
-  position: relative; height: clamp(260px, 42vw, 420px);
-  border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
-  background: var(--stage);
-  transition: background-color .25s, border-color .25s;
-}
-.kbd-stage .kb3d-mount { position: absolute; inset: 0; }
-.kbd-stage canvas { display: block; width: 100% !important; height: 100% !important; }
-.kbd-figure figcaption {
-  margin-top: 8px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-  font-size: 13px; color: var(--faint);
-}
-.kbd-figure .keys { display: inline-flex; align-items: center; gap: 5px; }
-.kbd-figure .keys b { color: var(--ink); letter-spacing: .06em; }
-
 .bio { color: var(--ink); font-size: 16.5px; }
 .callout {
   margin-top: 20px; padding: 14px 18px; border-radius: 10px;
@@ -215,7 +198,6 @@ footer.sitefoot {
   .hero { text-align: center; padding-top: 28px; }
   .hero-links { justify-content: center; }
   .areas { grid-template-columns: 1fr; }
-  .kbd-figure figcaption { justify-content: center; text-align: center; }
   .nav-inner { flex-wrap: wrap; padding: 10px 16px; }
   .nav-toggle { display: inline-grid; }
   .nav-links { display: none; order: 3; }

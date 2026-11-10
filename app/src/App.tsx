@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import './css/App.css'
-import Keyboard3D from './Keyboard3D'
 
 type Theme = 'light' | 'dark'
 type Link = { kind: 'site' | 'code' | 'post'; href: string }
@@ -17,7 +16,6 @@ const SECTIONS = [
 ]
 
 const projects: Project[] = [
-    { year: '2026', title: 'Quant Arena', desc: 'Paper-trading arena for the SNU quant study — a US-ETF simulator with a 5-minute batch engine, portfolios and a live leaderboard.', tags: ['Full-stack', 'Finance'], links: [{ kind: 'site', href: 'https://quant.exon.kr' }], note: 'Next.js · FastAPI · Postgres · Vercel' },
     { year: '2026', title: 'todo-lite', desc: 'A fast, minimal web client and desktop widget for Todo Mate.', tags: ['Web', 'Desktop'], links: [{ kind: 'site', href: 'https://todo.exon.kr' }], note: 'Vanilla JS · Electron' },
     { year: '2024', title: 'Dr.Travel — Junction Asia 2024', desc: 'Makes regional travel simpler and cheaper by connecting travelers with demand-responsive transit. Built in 3 days with Team Luuuuna.', tags: ['Hackathon', 'Mobility'], links: [{ kind: 'site', href: 'https://eu.junctionplatform.com/events/junction-asia-2024' }], note: 'Product design · React' },
     { year: '2023', title: 'Dimi6', desc: 'A point-based school-life platform with a reward store, announcements, meals and timetables.', tags: ['Full-stack'], links: [{ kind: 'code', href: 'https://github.com/sihyeokpark/dimi6' }], note: 'TypeScript · Next.js · MySQL' },
@@ -27,7 +25,6 @@ const projects: Project[] = [
 // Posts on blog.exon.kr (newest first) — mirrors https://blog.exon.kr/rss.xml
 const BLOG = 'https://blog.exon.kr'
 const posts = [
-    { date: 'May 2026', title: 'Become a freshman', blurb: 'first semester at SNU, and how to study hacking when AI solves CTFs', cat: 'Life', href: `${BLOG}/posts/life/2026/20265/` },
     { date: 'Aug 2024', title: 'Codegate Qual 2024 Writeup and Review', blurb: 'first Codegate finals (10th) and writeups for ShieldOSINT and combination', cat: 'CTF', href: `${BLOG}/posts/ctf/2024/codegate_qual/` },
     { date: 'Jul 2024', title: 'DeadSec CTF 2024 Writeup', blurb: 'web and misc challenge writeups', cat: 'CTF', href: `${BLOG}/posts/ctf/2024/deadsec/` },
 ]
@@ -174,25 +171,16 @@ function App() {
                     <div className="hero-links">
                         <a className="chip" href="https://github.com/sihyeokpark" target="_blank" rel="noreferrer">GitHub</a>
                         <a className="chip" href="https://blog.exon.kr/" target="_blank" rel="noreferrer">Blog</a>
-                        <a className="chip" href="https://quant.exon.kr" target="_blank" rel="noreferrer">Quant Arena</a>
                         <a className="chip" href="https://www.instagram.com/exon001/" target="_blank" rel="noreferrer">Instagram</a>
                     </div>
                 </header>
-
-                <figure className="kbd-figure" aria-label="Interactive 3D keyboard">
-                    <div className="kbd-stage"><Keyboard3D fit={0.6} /></div>
-                    <figcaption>
-                        <span>My daily driver, a Leopold FC660M — it mirrors your keystrokes.</span>
-                        <span className="keys"><kbd>1</kbd>–<kbd>7</kbd> jump · type <b>EXON</b></span>
-                    </figcaption>
-                </figure>
 
                 <section id="about">
                     <h2 className="sec">About</h2>
                     <p className="bio">
                         I build across <strong>full-stack web</strong>, <strong>security</strong> and <strong>machine learning</strong>,
                         and I like problems where the answer isn’t obvious. I started with CTFs and hackathons in middle school;
-                        these days I study ECE at SNU, run a student quant-investing study, and ship the tools it runs on.
+                        these days I study ECE at SNU and run a student quant-investing study.
                     </p>
                     <div className="areas">
                         <div className="area">
@@ -201,7 +189,7 @@ function App() {
                         </div>
                         <div className="area">
                             <h3>Full-stack Products</h3>
-                            <p>Small, fast tools people actually use — <a href="https://quant.exon.kr" target="_blank" rel="noreferrer">Quant Arena</a>, <a href="https://todo.exon.kr" target="_blank" rel="noreferrer">todo-lite</a>, <a href="https://github.com/sihyeokpark/dimi6" target="_blank" rel="noreferrer">Dimi6</a>.</p>
+                            <p>Small, fast tools people actually use — <a href="https://todo.exon.kr" target="_blank" rel="noreferrer">todo-lite</a>, <a href="https://github.com/sihyeokpark/dimi6" target="_blank" rel="noreferrer">Dimi6</a>.</p>
                         </div>
                         <div className="area">
                             <h3>ML &amp; Quant</h3>
@@ -300,7 +288,7 @@ function App() {
                     <div className="egg-card" onClick={(e) => e.stopPropagation()}>
                         <span className="egg-tag">{'// unlocked'}</span>
                         <h2>You found the switch.</h2>
-                        <p>You typed <b>EXON</b> on the board. That curiosity — poking at things until they open up — is exactly how I build. Security, ML, web: same reflex, different keycaps.</p>
+                        <p>You typed <b>EXON</b>. That curiosity — poking at things until they open up — is exactly how I build. Security, ML, web: same reflex, different keycaps.</p>
                         <div className="egg-links">
                             <a className="chip" href="https://github.com/sihyeokpark" target="_blank" rel="noreferrer">GitHub →</a>
                             <button className="chip" onClick={() => setEgg(false)}>Close (Esc)</button>
