@@ -1,434 +1,313 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-
+import { useEffect, useRef, useState, useCallback } from 'react'
 import './css/App.css'
+import Keyboard3D from './Keyboard3D'
 
-import { getImage, getProjectImage } from './lib/getImage'
+type Theme = 'light' | 'dark'
+type Link = { kind: 'site' | 'code' | 'post'; href: string }
+type Project = { year: string; title: string; desc: string; tags: string[]; links: Link[]; note?: string }
+
+const SECTIONS = [
+    { id: 'about', key: '1', label: 'About' },
+    { id: 'writing', key: '2', label: 'Writing' },
+    { id: 'projects', key: '3', label: 'Projects' },
+    { id: 'experience', key: '4', label: 'Experience' },
+    { id: 'honors', key: '5', label: 'Honors' },
+    { id: 'skills', key: '6', label: 'Skills' },
+    { id: 'contact', key: '7', label: 'Contact' },
+]
+
+const projects: Project[] = [
+    { year: '2026', title: 'Quant Arena', desc: 'Paper-trading arena for the SNU quant study — a US-ETF simulator with a 5-minute batch engine, portfolios and a live leaderboard.', tags: ['Full-stack', 'Finance'], links: [{ kind: 'site', href: 'https://quant.exon.kr' }], note: 'Next.js · FastAPI · Postgres · Vercel' },
+    { year: '2026', title: 'todo-lite', desc: 'A fast, minimal web client and desktop widget for Todo Mate.', tags: ['Web', 'Desktop'], links: [{ kind: 'site', href: 'https://todo.exon.kr' }], note: 'Vanilla JS · Electron' },
+    { year: '2024', title: 'Dr.Travel — Junction Asia 2024', desc: 'Makes regional travel simpler and cheaper by connecting travelers with demand-responsive transit. Built in 3 days with Team Luuuuna.', tags: ['Hackathon', 'Mobility'], links: [{ kind: 'site', href: 'https://eu.junctionplatform.com/events/junction-asia-2024' }], note: 'Product design · React' },
+    { year: '2023', title: 'Dimi6', desc: 'A point-based school-life platform with a reward store, announcements, meals and timetables.', tags: ['Full-stack'], links: [{ kind: 'code', href: 'https://github.com/sihyeokpark/dimi6' }], note: 'TypeScript · Next.js · MySQL' },
+    { year: '2022', title: 'Auto Attendance', desc: 'Cross-platform attendance system that identifies students with face recognition and shares results with teachers in real time.', tags: ['Computer Vision'], links: [{ kind: 'code', href: 'https://github.com/EXON-Archive-Junior-High/AutoAttendance' }], note: 'PyQt · Java' },
+    { year: '2022', title: 'Genetic Algorithm', desc: 'A visual, from-scratch genetic-algorithm experiment in pure JavaScript — where my interest in machine learning started.', tags: ['ML', 'Creative Coding'], links: [{ kind: 'code', href: 'https://github.com/EXON-Archive-Junior-High/GeneticAlgorithm' }], note: 'Vanilla JS' },
+]
+// Posts on blog.exon.kr (newest first) — mirrors https://blog.exon.kr/rss.xml
+const BLOG = 'https://blog.exon.kr'
+const posts = [
+    { date: 'May 2026', title: 'Become a freshman', blurb: 'first semester at SNU, and how to study hacking when AI solves CTFs', cat: 'Life', href: `${BLOG}/posts/life/2026/20265/` },
+    { date: 'Aug 2024', title: 'Codegate Qual 2024 Writeup and Review', blurb: 'first Codegate finals (10th) and writeups for ShieldOSINT and combination', cat: 'CTF', href: `${BLOG}/posts/ctf/2024/codegate_qual/` },
+    { date: 'Jul 2024', title: 'DeadSec CTF 2024 Writeup', blurb: 'web and misc challenge writeups', cat: 'CTF', href: `${BLOG}/posts/ctf/2024/deadsec/` },
+]
+
+const YEARS = Array.from(new Set(projects.map((p) => p.year)))
+
+const experience = [
+    { lead: '2026 —', title: 'Seoul National University', sub: 'B.S. student, Electrical & Computer Engineering', trail: 'Seoul' },
+    { lead: '2026 —', title: 'Quant Study (SNU LnL Seminar)', sub: 'Founder & lead — intro quant investing, US ETFs', trail: 'Lead' },
+    { lead: '2023 —', title: 'LUNA', sub: 'IT social-venture community solving everyday problems with technology', trail: 'Developer' },
+    { lead: '2022 —', title: 'CTFs & Hackathons', sub: 'Security competitions and fast-moving product teams', trail: 'Player' },
+]
+
+const honors = [
+    { yr: '2026', text: <><b>Grand Prize</b> (Gyeonggi Governor’s Award), Gyeonggi Virtual Convergence Content Challenge</> },
+    { yr: '', text: <><b>2nd Place</b>, NUS GreyHats CTF</> },
+    { yr: '2024', text: <><b>10th Place</b>, Codegate CTF — Junior Division · <a href="https://blog.exon.kr/posts/ctf/2024/codegate_qual/" target="_blank" rel="noreferrer">review</a></> },
+    { yr: '2023', text: <>Finalist, WACON CTF — Junior Division (Team ST3P)</> },
+    { yr: '2023', text: <><b>Grand Prize</b>, Goorm Algorithm Challenge — Gyeonggi division</> },
+    { yr: '2022', text: <><b>Grand Prize</b> (Minister of Science and ICT Award), Korea CodeFair Hackathon</> },
+]
+
+const skills = [
+    { lead: 'Web', grow: 'TypeScript, React, Next.js, Node.js, FastAPI' },
+    { lead: 'Systems', grow: 'Python, Java, C, Linux, Git, SQL' },
+    { lead: 'Exploring', grow: 'Web & systems security, machine learning, quantitative finance' },
+    { lead: 'Certificates', grow: 'Linux Master Level 2 · AICE Associate' },
+]
+
+const ICONS = {
+    site: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" /></svg>,
+    code: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>,
+    post: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></svg>,
+}
+
+function SunMoon({ theme }: { theme: Theme }) {
+    return theme === 'dark'
+        ? <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+        : <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z" /></svg>
+}
+
+const initialTheme = (): Theme => (document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light')
 
 function App() {
-    const [moreSection, setMoreSection] = useState(false)
+    const [theme, setTheme] = useState<Theme>(initialTheme)
+    const [active, setActive] = useState('')
+    const [menu, setMenu] = useState(false)
+    const [egg, setEgg] = useState(false)
+    const bufRef = useRef('')
 
-    const sectionVariants = {
-        initial: { opacity: 0, scale: 0.5 },
-        animate: { opacity: 1, scale: 1 },
-        transition: {
-            duration: 0.8,
-            delay: 0.5,
-            ease: [0, 0.71, 0.2, 1.01]
+    const applyTheme = useCallback((t: Theme, persist: boolean) => {
+        document.documentElement.dataset.theme = t
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', t === 'dark' ? '#0e0e11' : '#ffffff')
+        if (persist) { try { localStorage.setItem('theme', t) } catch { /* ignore */ } }
+        setTheme(t)
+    }, [])
+    const toggleTheme = useCallback(() => applyTheme(theme === 'dark' ? 'light' : 'dark', true), [theme, applyTheme])
+
+    // Follow the OS setting until the user picks a theme explicitly
+    useEffect(() => {
+        const mq = window.matchMedia('(prefers-color-scheme: dark)')
+        const onChange = (e: MediaQueryListEvent) => {
+            let stored: string | null = null
+            try { stored = localStorage.getItem('theme') } catch { /* ignore */ }
+            if (!stored) applyTheme(e.matches ? 'dark' : 'light', false)
         }
-    }
+        mq.addEventListener('change', onChange)
+        return () => mq.removeEventListener('change', onChange)
+    }, [applyTheme])
 
-    function moreSectionClick() {
-        setMoreSection(true)
-        window.scrollTo({top: 0, behavior: 'smooth' })
-    }
+    const goto = useCallback((id: string) => {
+        setMenu(false)
+        if (id === 'top') { window.scrollTo({ top: 0, behavior: 'smooth' }); return }
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, [])
 
-    function goGithub() {
-        window.open('https://github.com/sihyeokpark', '_blank')
-    }
+    // Physical keyboard → section jumps + EXON easter egg
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => {
+            if (e.metaKey || e.ctrlKey || e.altKey) return
+            const t = e.target as HTMLElement
+            if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) return
+            const sec = SECTIONS.find((s) => s.key === e.key)
+            if (sec) { goto(sec.id); return }
+            if (e.key === '0' || e.key === '`') { goto('top'); return }
+            if (e.key === 'Escape') { setEgg(false); setMenu(false); return }
+            if (/^[a-zA-Z]$/.test(e.key)) {
+                bufRef.current = (bufRef.current + e.key.toUpperCase()).slice(-8)
+                if (bufRef.current.includes('EXON')) { setEgg(true); bufRef.current = '' }
+            }
+        }
+        window.addEventListener('keydown', onKey)
+        return () => window.removeEventListener('keydown', onKey)
+    }, [goto])
+
+    // Scroll spy for the nav
+    useEffect(() => {
+        const atBottom = () => window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4
+        const io = new IntersectionObserver((entries) => {
+            const vis = entries.filter((en) => en.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+            if (atBottom()) setActive(SECTIONS[SECTIONS.length - 1].id)
+            else if (vis) setActive(vis.target.id)
+        }, { rootMargin: '-25% 0px -60% 0px', threshold: [0, 0.25, 0.5] })
+        SECTIONS.forEach((s) => { const el = document.getElementById(s.id); if (el) io.observe(el) })
+        // The last section is short, so mark it active once the page bottoms out
+        const onScroll = () => {
+            if (atBottom()) setActive(SECTIONS[SECTIONS.length - 1].id)
+            else if (window.scrollY < 200) setActive('')
+        }
+        window.addEventListener('scroll', onScroll, { passive: true })
+        return () => { io.disconnect(); window.removeEventListener('scroll', onScroll) }
+    }, [])
 
     return (
         <>
-            <nav>
-                <div className='center'>
-                    <img src={getImage('logo.png')}></img>
-                    <h1>exon.kr</h1>
+            <nav className={`topnav ${menu ? 'open' : ''}`}>
+                <div className="nav-inner">
+                    <a className="nav-name" href="#top" onClick={(e) => { e.preventDefault(); goto('top') }}>Sihyeok Park</a>
+                    <div className="nav-links">
+                        {SECTIONS.map((s) => (
+                            <a key={s.id} className={active === s.id ? 'active' : ''} href={`#${s.id}`} onClick={(e) => { e.preventDefault(); goto(s.id) }}>{s.label}</a>
+                        ))}
+                    </div>
+                    <div className="nav-tools">
+                        <button className="icon-btn" onClick={toggleTheme} aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'} title={theme === 'dark' ? 'Light mode' : 'Dark mode'}>
+                            <SunMoon theme={theme} />
+                        </button>
+                        <button className="icon-btn nav-toggle" aria-label="Toggle navigation" aria-expanded={menu} onClick={() => setMenu((m) => !m)}>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+                        </button>
+                    </div>
                 </div>
             </nav>
-            <div className='app'>
-                <section className='top'>
-                    <h1 className='title'>
-                        <span className='light' data-text={'Hi, I\'m Sihyeok Park —'}>Hi, I'm Sihyeok Park —</span><br/>
-                        <span className='light' data-text='known as EXON'>known as EXON</span>
-                    </h1>
-                    <p className='intro'>
-                        I'm {(() => {
-                        const date = new Date()
-                        return ((date.getMonth()+1 === 10 && date.getDate() >= 22) ? date.getFullYear() - 2007
-                            : (date.getMonth()+1 > 10) ? date.getFullYear() - 2007 : date.getFullYear() - 2007 - 1)
-                        })()} yo({new Date().getFullYear() - 2007 + 1} in Korean age) developer from South Korea.
-                        And I am a freshmen at Seoul National University.
-                        I enjoy breaking challenges and thinking outside the box. 
+
+            <main id="top">
+                <header className="hero">
+                    <h1>Sihyeok Park <span className="kr">박시혁</span></h1>
+                    <p className="role">
+                        Undergraduate, <a href="https://ece.snu.ac.kr/en" target="_blank" rel="noreferrer">Electrical &amp; Computer Engineering</a><br />
+                        <a href="https://en.snu.ac.kr" target="_blank" rel="noreferrer">Seoul National University</a><br />
+                        Goes by <b>EXON</b> online<br />
+                        <a href="mailto:exon.indiv@gmail.com">exon.indiv@gmail.com</a>
                     </p>
-                    {moreSection &&
-                        <p className='white'>
-                            Also interested in Full-Stack Web, Hacking and Machine Learning.
-                            Among them, my favorite field is Web Development.
-                        </p>
-                    }
-                    
+                    <div className="hero-links">
+                        <a className="chip" href="https://github.com/sihyeokpark" target="_blank" rel="noreferrer">GitHub</a>
+                        <a className="chip" href="https://blog.exon.kr/" target="_blank" rel="noreferrer">Blog</a>
+                        <a className="chip" href="https://quant.exon.kr" target="_blank" rel="noreferrer">Quant Arena</a>
+                        <a className="chip" href="https://www.instagram.com/exon001/" target="_blank" rel="noreferrer">Instagram</a>
+                    </div>
+                </header>
+
+                <figure className="kbd-figure" aria-label="Interactive 3D keyboard">
+                    <div className="kbd-stage"><Keyboard3D fit={0.6} /></div>
+                    <figcaption>
+                        <span>My daily driver, a Leopold FC660M — it mirrors your keystrokes.</span>
+                        <span className="keys"><kbd>1</kbd>–<kbd>7</kbd> jump · type <b>EXON</b></span>
+                    </figcaption>
+                </figure>
+
+                <section id="about">
+                    <h2 className="sec">About</h2>
+                    <p className="bio">
+                        I build across <strong>full-stack web</strong>, <strong>security</strong> and <strong>machine learning</strong>,
+                        and I like problems where the answer isn’t obvious. I started with CTFs and hackathons in middle school;
+                        these days I study ECE at SNU, run a student quant-investing study, and ship the tools it runs on.
+                    </p>
+                    <div className="areas">
+                        <div className="area">
+                            <h3>Security</h3>
+                            <p>CTF player since 2022 — web and systems challenges at Codegate, WACON and NUS GreyHats.</p>
+                        </div>
+                        <div className="area">
+                            <h3>Full-stack Products</h3>
+                            <p>Small, fast tools people actually use — <a href="https://quant.exon.kr" target="_blank" rel="noreferrer">Quant Arena</a>, <a href="https://todo.exon.kr" target="_blank" rel="noreferrer">todo-lite</a>, <a href="https://github.com/sihyeokpark/dimi6" target="_blank" rel="noreferrer">Dimi6</a>.</p>
+                        </div>
+                        <div className="area">
+                            <h3>ML &amp; Quant</h3>
+                            <p>Applied machine learning and systematic investing, from genetic algorithms to ETF backtests.</p>
+                        </div>
+                    </div>
+                    <div className="callout">
+                        <strong>Say hi:</strong> I’m always up for an interesting problem — a CTF team, a hackathon, or a side project.
+                        Reach me at <a href="mailto:exon.indiv@gmail.com">exon.indiv@gmail.com</a>.
+                    </div>
                 </section>
-                <motion.section
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                    duration: 0.8,
-                    delay: 0.5,
-                    ease: [0, 0.71, 0.2, 1.01]
-                    }}>
-                    <div className='both'>
-                        <div className='left'>
-                            <h1>Codegate 2024 <sup>2024.08.30-31</sup></h1>
-                            <p>
-                                <a href='https://codegate.org/' target='_blank'>Codegate 2024</a> is international hacking competition(CTF) and conference.
-                                I participated in the Codegate 2024 Junior Division and finished 10th.
-                            </p>
+
+                <section id="writing">
+                    <div className="h2row">
+                        <h2 className="sec">Writing</h2>
+                        <a className="chip" href={`${BLOG}/archive/`} target="_blank" rel="noreferrer">All posts →</a>
+                    </div>
+                    {posts.map((p) => (
+                        <div className="news-item" key={p.href}>
+                            <div className="news-date">{p.date}</div>
+                            <div className="news-body">
+                                <a href={p.href} target="_blank" rel="noreferrer">{p.title}</a>: {p.blurb} <span className="area-badge">{p.cat}</span>
+                            </div>
                         </div>
-                        <div className='right'>
-                            <img src={getProjectImage('codegate2024_1.jpg')} alt='codegate'></img>
-                            <img src={getProjectImage('codegate2024_2.jpg')} alt='codegate'></img>
+                    ))}
+                </section>
+
+                <section id="projects">
+                    <div className="h2row">
+                        <h2 className="sec">Projects</h2>
+                        <a className="chip" href="https://github.com/sihyeokpark" target="_blank" rel="noreferrer">More on GitHub →</a>
+                    </div>
+                    {YEARS.map((y, i) => (
+                        <div key={y}>
+                            <div className={`year-head ${i === 0 ? 'first' : ''}`}>{y}</div>
+                            {projects.filter((p) => p.year === y).map((p) => (
+                                <div className="pub" key={p.title}>
+                                    <div className="pub-title"><a href={p.links[0].href} target="_blank" rel="noreferrer">{p.title}</a></div>
+                                    <div className="pub-authors">{p.desc}</div>
+                                    <div className="pub-meta">
+                                        {p.tags.map((t) => <span className="area-badge" key={t}>{t}</span>)}
+                                        {p.links.map((l) => (
+                                            <a key={l.href} className={`plink ${l.kind}`} href={l.href} target="_blank" rel="noreferrer" title={l.kind} aria-label={`${p.title} ${l.kind}`}>{ICONS[l.kind]}</a>
+                                        ))}
+                                        {p.note && <span className="venue-full">{p.note}</span>}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </section>
+
+                <section id="experience">
+                    <h2 className="sec">Experience</h2>
+                    {experience.map((x) => (
+                        <div className="row" key={x.title}>
+                            <span className="lead">{x.lead}</span>
+                            <span className="grow"><b>{x.title}</b><br /><span className="sub">{x.sub}</span></span>
+                            <span className="trail">{x.trail}</span>
+                        </div>
+                    ))}
+                </section>
+
+                <section id="honors">
+                    <h2 className="sec">Honors &amp; Awards</h2>
+                    <div className="hl-grid">
+                        {honors.map((h, i) => (
+                            <div className="hl" key={i}><span className="yr">{h.yr}</span><span>{h.text}</span></div>
+                        ))}
+                    </div>
+                </section>
+
+                <section id="skills">
+                    <h2 className="sec">Skills</h2>
+                    {skills.map((s) => (
+                        <div className="row" key={s.lead}>
+                            <span className="lead">{s.lead}</span>
+                            <span className="grow">{s.grow}</span>
+                        </div>
+                    ))}
+                </section>
+
+                <section id="contact">
+                    <h2 className="sec">Contact</h2>
+                    <div className="row"><span className="lead">Email</span><span className="grow"><a href="mailto:exon.indiv@gmail.com">exon.indiv@gmail.com</a></span></div>
+                    <div className="row"><span className="lead">GitHub</span><span className="grow"><a href="https://github.com/sihyeokpark" target="_blank" rel="noreferrer">github.com/sihyeokpark</a></span></div>
+                    <div className="row"><span className="lead">Blog</span><span className="grow"><a href="https://blog.exon.kr/" target="_blank" rel="noreferrer">blog.exon.kr</a> · <a href="https://exon001.tistory.com/" target="_blank" rel="noreferrer">Tistory</a></span></div>
+                    <div className="row"><span className="lead">Instagram</span><span className="grow"><a href="https://www.instagram.com/exon001/" target="_blank" rel="noreferrer">@exon001</a></span></div>
+                </section>
+            </main>
+
+            <footer className="sitefoot">© {new Date().getFullYear()} Sihyeok Park · EXON</footer>
+
+            {egg && (
+                <div className="egg" onClick={() => setEgg(false)}>
+                    <div className="egg-card" onClick={(e) => e.stopPropagation()}>
+                        <span className="egg-tag">{'// unlocked'}</span>
+                        <h2>You found the switch.</h2>
+                        <p>You typed <b>EXON</b> on the board. That curiosity — poking at things until they open up — is exactly how I build. Security, ML, web: same reflex, different keycaps.</p>
+                        <div className="egg-links">
+                            <a className="chip" href="https://github.com/sihyeokpark" target="_blank" rel="noreferrer">GitHub →</a>
+                            <button className="chip" onClick={() => setEgg(false)}>Close (Esc)</button>
                         </div>
                     </div>
-                </motion.section>
-                <motion.section
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                    duration: 0.8,
-                    delay: 0.5,
-                    ease: [0, 0.71, 0.2, 1.01]
-                    }}>
-                    <div className='both'>
-                        <div className='left'>
-                            <h1>Junction Asia 2024 <sup>2024.08.9~11</sup></h1>
-                            <p>
-                                <a href='https://eu.junctionplatform.com/events/junction-asia-2024' target='_blank'>Junction Asia 2024</a> is a hackathon party where people from all over the world come together for three days to break the limits of various creators.
-                                Our team(Luuuuna) made "Dr.Travel" that is a platform that make travel traffic more easily and cheaply by using DRT Bus.
-                            </p>
-                        </div>
-                        <div className='right'>
-                            <img src={getProjectImage('junction2024_pizza.jpg')} alt='junction'></img>
-                            <img src={getProjectImage('junction2024.jpg')} alt='junction'></img>
-                        </div>
-                    </div>
-                </motion.section>
-                {/* { moreSection && */}
-                    <motion.section
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{
-                        duration: 0.8,
-                        delay: 0.5,
-                        ease: [0, 0.71, 0.2, 1.01]
-                        }}>
-                        <div className='both'>
-                            <div className='left'>
-                                <h1>WACON 2023 <sup>2023.09.25-26</sup></h1>
-                                <p>
-                                    I participated in the <a href='https://wacon.world/' target='_blank'>WACON 2023</a> Junior Division as <a href='http://st3p.exon.kr' target='_blank'>Team ST3P</a> composed of Jonghwi Park<sup>KDMHS 22HD</sup>, Solwoo Song<sup>KDMHS 22HD</sup> and Jaeyoung Yoon<sup>KDMHS 22HD</sup>.
-                                    WACON 2023 is an international hacking competition(CTF) involving the world's best hackers to publicize the importance of cybersecurity to ordinary users and to find ways to effectively respond to increasingly advanced online hacking to companies and governments.
-                                </p>
-                            </div>
-                            <div className='right'>
-                                <img src={getProjectImage('wacon.jpg')} alt='wacon'></img>
-                            </div>
-                        </div>
-                    </motion.section>
-                {/* } */}
-                <motion.section
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 0.5,
-                      ease: [0, 0.71, 0.2, 1.01]
-                    }}>
-                    <div className='both'>
-                        <div className='left'>
-                            <h1>Junction Asia 2023 <sup>2023.08.18~20</sup></h1>
-                            <p>
-                                I participated in the <a href='https://www.hackjunction.com/' target='_blank'>Junction Asia 2023</a> as Team Quantum composed of members of LUNA.
-                                Junction Asia is a hackathon party where people from all over the world come together for three days to break the limits of various creators.                            </p>
-                        </div>
-                        <div className='right'>
-                            <img src={getProjectImage('junction1.jpg')} alt='junction asia'></img>
-                            <img src={getProjectImage('junction2.jpg')} alt='junction asia'></img>
-                        </div>
-                    </div>
-                </motion.section>
-                {/* { moreSection && */}
-                    <motion.section
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{
-                        duration: 0.8,
-                        delay: 0.5,
-                        ease: [0, 0.71, 0.2, 1.01]
-                        }}>
-                        <div className='both'>
-                            <div className='left'>
-                                <h1>Hello New() World 2023 <sup>2023.08.3-4</sup></h1>
-                                <p>
-                                    I participated in the <a href='http://hellonewworld.co.kr/' target='_blank'>Hello New() World</a> as Team NEON composed of members of LUNA.
-                                    This is a hackathon for teenagers to use IT technology to solve social problems.
-                                </p>
-                            </div>
-                            <div className='right'>
-                                <img src={getProjectImage('hnw.jpg')} alt='When I was making this project.'></img>
-                            </div>
-                        </div>
-                    </motion.section>
-                {/* } */}
-                <motion.section
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 0.5,
-                      ease: [0, 0.71, 0.2, 1.01]
-                    }}>
-                    <div className='both'>
-                        <div className='left'>
-                            <h1>Dimi6 <sup>2023.04~09</sup></h1>
-                            <p>
-                                <a href='https://github.com/sihyeokpark/dimi6' target='_blank'>Dimi6</a> is point system for Korea Digital Media High School first grader of class 6.
-                                It is a system that provides points to the students that follow the rules in the class, and was developed through Typescript, Next 13, and MySQL.
-                                It has convenient functions necessary for school life, such as an exchange where you can purchase ice cream coupons using points, bulletin boards that announce information in the class, meals, and timetables.
-                            </p>
-                        </div>
-                        <div className='right'>
-                            <img src={getProjectImage('dimi6.png')} alt='dimi6'></img>
-                        </div>
-                    </div>
-                </motion.section>
-                {/* { moreSection &&
-                    <motion.section
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{
-                        duration: 0.8,
-                        delay: 0.5,
-                        ease: [0, 0.71, 0.2, 1.01]
-                        }}>
-                        <div className='both'>
-                            <div className='left'>
-                                <h1>2023 CCE <sup>2023.06.10</sup></h1>
-                                <p>
-                                    I participated in the <a href='https://cce.cstec.kr/' target='_blank'>Cyber Conflict Exercise 2023</a> Junior Division and finished 11st with my team "If we win first place, we drop out", <a href='https://github.com/hyjun0407'>Seungchan Kim</a><sup>KDMHS 22HD</sup>, Jaeyoung Yoon<sup>KDMHS 22HD</sup>, Dohyun Lee.
-                                    We solved five problems, two in the field of web, two of which were in the field of misc, and one in the field of cryptography.
-                                </p>
-                            </div>
-                            <div className='right'>
-                                <img src={cce} alt='When I was making this project.'></img>
-                            </div>
-                        </div>
-                    </motion.section>
-                } */}
-                <motion.section
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 0.5,
-                      ease: [0, 0.71, 0.2, 1.01]
-                    }}>
-                    <div className='both'>
-                        <div className='left'>
-                            <h1>LUNA <sup>2023.03~</sup></h1>
-                            <p>
-                                I am developer of <a href='https://luna.codes' target='_blank'>LUNA</a> 6th.<br></br>
-                                LUNA is a IT social venture society of Korea Digital Media High School that tries to solve social various problems with IT and create where everyone can live together.
-                            </p>
-                        </div>
-                        <div className='right'>
-                            <img src={getProjectImage('luna.png')} alt='Luna'></img>
-                        </div>
-                    </div>
-                </motion.section>
-                <motion.section
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 0.5,
-                      ease: [0, 0.71, 0.2, 1.01]
-                    }}>
-                    <div className='both'>
-                        <div className='left'>
-                            <h1>Goorm High School<br></br> Algorithm Camp <sup>2023.02</sup></h1>
-                            <div className='award'>
-                                <img src={getImage('medal.png')} height='30px'></img>
-                                <span>The Goorm High School Algorithm Team Challenge <strong>Grand Prize(1st)</strong> in Gyeonggi-Do Division</span>
-                            </div>
-                            <p>
-                                I won the <a href='https://exon001.tistory.com/5' target='_blank'>Goorm High School Algorithm Team Challenge</a> Grand Prize in Gyeonggi-Do Division with my team "Coding With Hand", Boseok Son<sup>GBSWHS 3SD</sup>, Minseo Kim<sup>KDMHS 22WP</sup>, Suyun Kim.
-                                We listened to a lecture about DFS, BFS algorithm and participated in a competition.
-                            </p>
-                        </div>
-                        <div className='right'>
-                            <img src={getProjectImage('goorm.jpg')} alt='Goorm High School'></img>
-                        </div>
-                    </div>
-                </motion.section>
-                <motion.section
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 0.5,
-                      ease: [0, 0.71, 0.2, 1.01]
-                    }}>
-                    <div className='both'>
-                        <div className='left'>
-                            <h1>The 4th Korea-CodeFair <sup>2022.12</sup></h1>
-                            <div className='award'>
-                                <img src={getImage('medal.png')} height='30px'></img>
-                                <span>The 4th Korea-CodeFair Hackathon <strong>Grand Prize(1st)</strong> in Middle School Division</span>
-                            </div>
-                            <p>
-                                I won the 4th Korea-CodeFair Hackathon Grand Prize in Middle School Division with my team "Coding Without Hand", Wongyu Koh, Seungsoo Kim.
-                                We made a <a href='https://github.com/codingWithoutHand/ConvenienceStoreForVisuallyImpaired' target='_blank'>project</a> that can detect items in a convenience store and speak out the name of the item for the visually impaired.
-                                this project was made with Python, Pytorch, Selenium, and Javascript.
-                            </p>
-                        </div>
-                        <div className='right'>
-                            <img src={getProjectImage('codefair.jpg')} alt='When I attended Codefair.'></img>
-                        </div>
-                    </div>
-                </motion.section>
-                <motion.section
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 0.5,
-                      ease: [0, 0.71, 0.2, 1.01]
-                    }}>
-                    <div className='both'>
-                        <div className='left'>
-                            <h1>Auto Attendance Check <sup>2022.10</sup></h1>
-                            <p>
-                                I made <a href='https://github.com/EXON-Archive-Junior-High/AutoAttendance' target='_blank'>Auto Attendance Check Project</a> with PyQt and Java.
-                                It is made for my school.
-                                The feature of this project is that it can automatically check attendance through face recognition and exchange a message to the teacher.
-                                Also have sceduler for the student that is managed by teacher.
-                                It supports Windows, Android.
-                            </p>
-                            <p>
-                                
-                            </p>
-                        </div>
-                        <div className='right'>
-                            <img src={getProjectImage('autoattendence.jpg')} alt='When I was making this project.'></img>
-                        </div>
-                    </div>
-                </motion.section>
-                {/* {!moreSection && 
-                    <section className='new'>
-                        <button onClick={moreSectionClick}><span><img src={getImage('brace1.png')} height='20px'></img></span>If you want to know me more?<span><img src={getImage('brace2.png')} height='20px'></img></span></button>
-                    </section>
-                } */}
-                {/* {moreSection && */}
-                    <motion.section
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 0.5,
-                      ease: [0, 0.71, 0.2, 1.01]
-                    }}>
-                        <div className='both'>
-                            <div className='left'>
-                                <h1>Genetic Algorithm <sup>2022.07</sup></h1>
-                                <p>
-                                    I implemented <a href='https://github.com/EXON-Archive-Junior-High/GeneticAlgorithm' target='_blank'>Genetic Algorithm</a> with Pure Javascript.
-                                    It is for my school performance evaluation.
-                                    Watched <a href='https://www.youtube.com/watch?v=Yr_nRnqeDp0' target='_blank'>this video</a> and I wanted to really learn it.
-                                    So I knew that it is used in Machine Learning, it was departure point for Machine Learning to me.
-                                </p>
-                                <p>
-                                    
-                                </p>
-                            </div>
-                            <div className='right'>
-                                <img src={getProjectImage('genetic.gif')} alt='When I was making this project.'></img>
-                            </div>
-                        </div>
-                    </motion.section>
-                {/* } */}
-                {/* {moreSection &&  */}
-                    <section className='new'>
-                        <button onClick={goGithub}><span><img src={getImage('brace1.png')} height='20px'></img></span>See my other projects<span><img src={getImage('brace2.png')} height='20px'></img></span></button>
-                    </section>
-                {/* } */}
-                <motion.section
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 0.5,
-                      ease: [0, 0.71, 0.2, 1.01]
-                    }}>
-                    <h1>Contact</h1>
-                    <div className='contactList'>
-                        <a className='link' href='mailto:exon.indiv@gmail.com' target='_blank'>
-                            <div className='contact'>
-                                <div className='plat email'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M17.834 6.166a8.25 8.25 0 100 11.668.75.75 0 011.06 1.06c-3.807 3.808-9.98 3.808-13.788 0-3.808-3.807-3.808-9.98 0-13.788 3.807-3.808 9.98-3.808 13.788 0A9.722 9.722 0 0121.75 12c0 .975-.296 1.887-.809 2.571-.514.685-1.28 1.179-2.191 1.179-.904 0-1.666-.487-2.18-1.164a5.25 5.25 0 11-.82-6.26V8.25a.75.75 0 011.5 0V12c0 .682.208 1.27.509 1.671.3.401.659.579.991.579.332 0 .69-.178.991-.579.3-.4.509-.99.509-1.671a8.222 8.222 0 00-2.416-5.834zM15.75 12a3.75 3.75 0 10-7.5 0 3.75 3.75 0 007.5 0z"></path></svg>
-                                </div>
-                                <div className='user'>
-                                    <span className='platform'>E-mail</span>
-                                    <span>exon.indiv</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a className='link' href='https://github.com/sihyeokpark' target='_blank'>
-                            <div className='contact'>
-                                <div className='plat github'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-                                </div>
-                                <div className='user'>
-                                    <span className='platform'>Github</span>
-                                    <span>sihyeokpark</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a className='link' href='https://www.instagram.com/exon001/' target='_blank'>
-                            <div className='contact'>
-                                <div className='plat instagram'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
-                                </div>
-                                <div className='user'>
-                                    <span className='platform'>Instagram</span>
-                                    <span>exon001</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a className='link' href='https://discord.com/users/774607106732326922' target='_blank'>
-                            <div className='contact'>
-                                <div className='plat discord'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"></path></svg>
-                                </div>
-                                <div className='user'>
-                                    <span className='platform'>Discord</span>
-                                    <span>sihyeokpark</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a className='link' href='https://exon001.tistory.com/' target='_blank'>
-                            <div className='contact'>
-                                <div className='plat tistory'>
-                                    <img src={getImage('contact/tistory.svg')} height="30px"></img>
-                                </div>
-                                <div className='user'>
-                                    <span className='platform'>Tistory</span>
-                                    <span>exon001</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a className='link' href='https://blog.exon.kr/' target='_blank'>
-                            <div className='contact'>
-                                <div className='plat blog'>
-                                </div>
-                                <div className='user'>
-                                    <span className='platform'>Blog</span>
-                                    <span>exon</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </motion.section>
-            </div>
+                </div>
+            )}
         </>
     )
 }
