@@ -33,9 +33,7 @@ const YEARS = Array.from(new Set(projects.map((p) => p.year)))
 
 const experience = [
     { lead: '2026 —', title: 'Seoul National University', sub: 'B.S. student, Electrical & Computer Engineering', trail: 'Seoul' },
-    { lead: '2026 —', title: 'Quant Study (SNU LnL Seminar)', sub: 'Founder & lead — intro quant investing, US ETFs', trail: 'Lead' },
     { lead: '2023 —', title: 'LUNA', sub: 'IT social-venture community solving everyday problems with technology', trail: 'Developer' },
-    { lead: '2022 —', title: 'CTFs & Hackathons', sub: 'Security competitions and fast-moving product teams', trail: 'Player' },
 ]
 
 const honors = [
@@ -43,7 +41,7 @@ const honors = [
     { yr: '', text: <><b>2nd Place</b>, NUS GreyHats CTF</> },
     { yr: '2024', text: <><b>10th Place</b>, Codegate CTF — Junior Division · <a href="https://blog.exon.kr/posts/ctf/2024/codegate_qual/" target="_blank" rel="noreferrer">review</a></> },
     { yr: '2023', text: <>Finalist, WACON CTF — Junior Division (Team ST3P)</> },
-    { yr: '2023', text: <><b>Grand Prize</b>, Goorm Algorithm Challenge — Gyeonggi division</> },
+    // { yr: '', text: <><b>Grand Prize</b>, Goorm Algorithm Challenge — Gyeonggi division</> },
     { yr: '2022', text: <><b>Grand Prize</b> (Minister of Science and ICT Award), Korea CodeFair Hackathon</> },
 ]
 
@@ -180,7 +178,7 @@ function App() {
                     <p className="bio">
                         I build across <strong>full-stack web</strong>, <strong>security</strong> and <strong>machine learning</strong>,
                         and I like problems where the answer isn’t obvious. I started with CTFs and hackathons in middle school;
-                        these days I study ECE at SNU and run a student quant-investing study.
+                        these days I study ECE at SNU
                     </p>
                     <div className="areas">
                         <div className="area">
@@ -276,7 +274,7 @@ function App() {
                     <h2 className="sec">Contact</h2>
                     <div className="row"><span className="lead">Email</span><span className="grow"><a href="mailto:exon.indiv@gmail.com">exon.indiv@gmail.com</a></span></div>
                     <div className="row"><span className="lead">GitHub</span><span className="grow"><a href="https://github.com/sihyeokpark" target="_blank" rel="noreferrer">github.com/sihyeokpark</a></span></div>
-                    <div className="row"><span className="lead">Blog</span><span className="grow"><a href="https://blog.exon.kr/" target="_blank" rel="noreferrer">blog.exon.kr</a> · <a href="https://exon001.tistory.com/" target="_blank" rel="noreferrer">Tistory</a></span></div>
+                    <div className="row"><span className="lead">Blog</span><span className="grow"><a href="https://blog.exon.kr/" target="_blank" rel="noreferrer">blog.exon.kr</a></span></div>
                     <div className="row"><span className="lead">Instagram</span><span className="grow"><a href="https://www.instagram.com/exon001/" target="_blank" rel="noreferrer">@exon001</a></span></div>
                 </section>
             </main>
