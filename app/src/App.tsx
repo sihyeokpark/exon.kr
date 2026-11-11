@@ -11,8 +11,7 @@ const SECTIONS = [
     { id: 'projects', key: '3', label: 'Projects' },
     { id: 'experience', key: '4', label: 'Experience' },
     { id: 'honors', key: '5', label: 'Honors' },
-    { id: 'skills', key: '6', label: 'Skills' },
-    { id: 'contact', key: '7', label: 'Contact' },
+    { id: 'contact', key: '6', label: 'Contact' },
 ]
 
 const projects: Project[] = [
@@ -43,13 +42,6 @@ const honors = [
     { yr: '2023', text: <>Finalist, WACON CTF — Junior Division (Team ST3P)</> },
     // { yr: '', text: <><b>Grand Prize</b>, Goorm Algorithm Challenge — Gyeonggi division</> },
     { yr: '2022', text: <><b>Grand Prize</b> (Minister of Science and ICT Award), Korea CodeFair Hackathon</> },
-]
-
-const skills = [
-    { lead: 'Web', grow: 'TypeScript, React, Next.js, Node.js, FastAPI' },
-    { lead: 'Systems', grow: 'Python, Java, C, Linux, Git, SQL' },
-    { lead: 'Exploring', grow: 'Web & systems security, machine learning, quantitative finance' },
-    { lead: 'Certificates', grow: 'Linux Master Level 2 · AICE Associate' },
 ]
 
 const ICONS = {
@@ -178,7 +170,7 @@ function App() {
                     <p className="bio">
                         I build across <strong>full-stack web</strong>, <strong>security</strong> and <strong>machine learning</strong>,
                         and I like problems where the answer isn’t obvious. I started with CTFs and hackathons in middle school;
-                        these days I study ECE at SNU
+                        these days I study ECE at SNU.
                     </p>
                     <div className="areas">
                         <div className="area">
@@ -258,16 +250,6 @@ function App() {
                             <div className="hl" key={i}><span className="yr">{h.yr}</span><span>{h.text}</span></div>
                         ))}
                     </div>
-                </section>
-
-                <section id="skills">
-                    <h2 className="sec">Skills</h2>
-                    {skills.map((s) => (
-                        <div className="row" key={s.lead}>
-                            <span className="lead">{s.lead}</span>
-                            <span className="grow">{s.grow}</span>
-                        </div>
-                    ))}
                 </section>
 
                 <section id="contact">
