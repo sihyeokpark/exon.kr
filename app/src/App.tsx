@@ -14,13 +14,8 @@ const SECTIONS = [
     { id: 'contact', key: '6', label: 'Contact' },
 ]
 
-const projects: Project[] = [
-    { year: '2026', title: 'todo-lite', desc: 'A fast, minimal web client and desktop widget for Todo Mate.', tags: ['Web', 'Desktop'], links: [{ kind: 'site', href: 'https://todo.exon.kr' }], note: 'Vanilla JS · Electron' },
-    { year: '2024', title: 'Dr.Travel — Junction Asia 2024', desc: 'Makes regional travel simpler and cheaper by connecting travelers with demand-responsive transit. Built in 3 days with Team Luuuuna.', tags: ['Hackathon', 'Mobility'], links: [{ kind: 'site', href: 'https://eu.junctionplatform.com/events/junction-asia-2024' }], note: 'Product design · React' },
-    { year: '2023', title: 'Dimi6', desc: 'A point-based school-life platform with a reward store, announcements, meals and timetables.', tags: ['Full-stack'], links: [{ kind: 'code', href: 'https://github.com/sihyeokpark/dimi6' }], note: 'TypeScript · Next.js · MySQL' },
-    { year: '2022', title: 'Auto Attendance', desc: 'Cross-platform attendance system that identifies students with face recognition and shares results with teachers in real time.', tags: ['Computer Vision'], links: [{ kind: 'code', href: 'https://github.com/EXON-Archive-Junior-High/AutoAttendance' }], note: 'PyQt · Java' },
-    { year: '2022', title: 'Genetic Algorithm', desc: 'A visual, from-scratch genetic-algorithm experiment in pure JavaScript — where my interest in machine learning started.', tags: ['ML', 'Creative Coding'], links: [{ kind: 'code', href: 'https://github.com/EXON-Archive-Junior-High/GeneticAlgorithm' }], note: 'Vanilla JS' },
-]
+// Projects in progress — add entries here when they ship
+const projects: Project[] = []
 // Posts on blog.exon.kr (newest first) — mirrors https://blog.exon.kr/rss.xml
 const BLOG = 'https://blog.exon.kr'
 const posts = [
@@ -37,6 +32,7 @@ const experience = [
 
 const honors = [
     { yr: '2026', text: <><b>Grand Prize</b> (Gyeonggi Governor’s Award), Gyeonggi Virtual Convergence Content Challenge</> },
+    { yr: '2026', text: <><b>Excellence Award</b>, SNU School of Transdisciplinary Innovations Startup Competition</> },
     { yr: '', text: <><b>2nd Place</b>, NUS GreyHats CTF</> },
     { yr: '2024', text: <><b>10th Place</b>, Codegate CTF — Junior Division · <a href="https://blog.exon.kr/posts/ctf/2024/codegate_qual/" target="_blank" rel="noreferrer">review</a></> },
     { yr: '2023', text: <>Finalist, WACON CTF — Junior Division (Team ST3P)</> },
@@ -182,8 +178,8 @@ function App() {
                             <p>Small, fast tools people actually use — <a href="https://todo.exon.kr" target="_blank" rel="noreferrer">todo-lite</a>, <a href="https://github.com/sihyeokpark/dimi6" target="_blank" rel="noreferrer">Dimi6</a>.</p>
                         </div>
                         <div className="area">
-                            <h3>ML &amp; Quant</h3>
-                            <p>Applied machine learning and systematic investing, from genetic algorithms to ETF backtests.</p>
+                            <h3>ML</h3>
+                            <p>Applied machine learning — from genetic algorithms written from scratch to computer vision.</p>
                         </div>
                     </div>
                 </section>
@@ -208,6 +204,9 @@ function App() {
                         <h2 className="sec">Projects</h2>
                         <a className="chip" href="https://github.com/sihyeokpark" target="_blank" rel="noreferrer">More on GitHub →</a>
                     </div>
+                    {projects.length === 0 && (
+                        <p className="placeholder">Currently building something new — <b>in progress</b>, coming soon.</p>
+                    )}
                     {YEARS.map((y, i) => (
                         <div key={y}>
                             <div className={`year-head ${i === 0 ? 'first' : ''}`}>{y}</div>
@@ -251,7 +250,7 @@ function App() {
                 <section id="contact">
                     <h2 className="sec">Contact</h2>
                     <div className="row"><span className="lead">Email</span><span className="grow"><a href="mailto:exon.indiv@gmail.com">exon.indiv@gmail.com</a></span></div>
-                    <div className="row"><span className="lead">GitHub</span><span className="grow"><a href="https://github.com/sihyeokpark" target="_blank" rel="noreferrer">github.com/sihyeokpark</a></span></div>
+                    <div className="row"><span className="lead">GitHub</span><span className="grow"><a href="https://github.com/sihyeokpark" target="_blank" rel="noreferrer">sihyeokpark</a></span></div>
                     <div className="row"><span className="lead">Blog</span><span className="grow"><a href="https://blog.exon.kr/" target="_blank" rel="noreferrer">blog.exon.kr</a></span></div>
                     <div className="row"><span className="lead">Instagram</span><span className="grow"><a href="https://www.instagram.com/exon001/" target="_blank" rel="noreferrer">@exon001</a></span></div>
                 </section>

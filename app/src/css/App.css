@@ -143,6 +143,8 @@ h2.sec { font-size: 26px; letter-spacing: -.02em; color: var(--ink); font-weight
   margin: 20px 0 2px; padding-bottom: 7px; border-bottom: 1px solid var(--line);
 }
 .year-head.first { margin-top: 0; }
+.placeholder { padding: 14px 18px; border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); font-size: 15px; }
+.placeholder b { color: var(--ink); }
 .pub { padding: 10px 0; border-bottom: 1px solid var(--line); }
 .pub:last-child { border-bottom: 0; }
 .pub-title { font-weight: 650; font-size: 15.5px; letter-spacing: -.01em; }
