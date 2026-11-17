@@ -27,6 +27,7 @@ const YEARS = Array.from(new Set(projects.map((p) => p.year)))
 
 const experience = [
     { lead: '2026 —', title: 'Seoul National University', sub: 'B.S. student, Electrical & Computer Engineering', trail: 'Seoul' },
+    { lead: '2023 — 2026', title: 'Korea Digital Media High School', sub: 'High school diploma', trail: 'Ansan' },
     { lead: '2023 —', title: 'LUNA', sub: 'IT social-venture community solving everyday problems with technology', trail: 'Developer' },
 ]
 
@@ -60,6 +61,7 @@ function App() {
     const [menu, setMenu] = useState(false)
     const [egg, setEgg] = useState(false)
     const bufRef = useRef('')
+    const pinRef = useRef<string | null>(null)   // nav item clicked; kept until the user scrolls by hand
 
     const applyTheme = useCallback((t: Theme, persist: boolean) => {
         document.documentElement.dataset.theme = t
@@ -83,6 +85,10 @@ function App() {
 
     const goto = useCallback((id: string) => {
         setMenu(false)
+        // Highlight the clicked item right away and hold it while the smooth scroll runs,
+        // so short sections (e.g. Projects) don't get overridden by a neighbour.
+        pinRef.current = id === 'top' ? null : id
+        setActive(id === 'top' ? '' : id)
         if (id === 'top') { window.scrollTo({ top: 0, behavior: 'smooth' }); return }
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }, [])
@@ -106,22 +112,32 @@ function App() {
         return () => window.removeEventListener('keydown', onKey)
     }, [goto])
 
-    // Scroll spy for the nav
+    // Scroll spy: the active section is the last one whose top has passed just below the sticky nav
     useEffect(() => {
-        const atBottom = () => window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4
-        const io = new IntersectionObserver((entries) => {
-            const vis = entries.filter((en) => en.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-            if (atBottom()) setActive(SECTIONS[SECTIONS.length - 1].id)
-            else if (vis) setActive(vis.target.id)
-        }, { rootMargin: '-25% 0px -60% 0px', threshold: [0, 0.25, 0.5] })
-        SECTIONS.forEach((s) => { const el = document.getElementById(s.id); if (el) io.observe(el) })
-        // The last section is short, so mark it active once the page bottoms out
-        const onScroll = () => {
-            if (atBottom()) setActive(SECTIONS[SECTIONS.length - 1].id)
-            else if (window.scrollY < 200) setActive('')
+        const update = () => {
+            if (pinRef.current) return
+            const doc = document.documentElement
+            if (window.innerHeight + window.scrollY >= doc.scrollHeight - 4) { setActive(SECTIONS[SECTIONS.length - 1].id); return }
+            let cur = ''
+            for (const sec of SECTIONS) {
+                const el = document.getElementById(sec.id)
+                if (el && el.getBoundingClientRect().top <= 120) cur = sec.id
+            }
+            setActive(cur)
         }
-        window.addEventListener('scroll', onScroll, { passive: true })
-        return () => { io.disconnect(); window.removeEventListener('scroll', onScroll) }
+        // Manual scrolling releases the pin (programmatic smooth scroll doesn't fire these)
+        const unpin = (e: Event) => {
+            if (e.type === 'keydown' && !['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes((e as KeyboardEvent).key)) return
+            if (pinRef.current) { pinRef.current = null; update() }
+        }
+        update()
+        window.addEventListener('scroll', update, { passive: true })
+        const manual = ['wheel', 'touchmove', 'keydown', 'mousedown'] as const
+        manual.forEach((t) => window.addEventListener(t, unpin, { passive: true }))
+        return () => {
+            window.removeEventListener('scroll', update)
+            manual.forEach((t) => window.removeEventListener(t, unpin))
+        }
     }, [])
 
     return (
