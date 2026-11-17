@@ -161,7 +161,7 @@ function App() {
                     <div className="hero-links">
                         <a className="chip" href="https://github.com/sihyeokpark" target="_blank" rel="noreferrer">GitHub</a>
                         <a className="chip" href="https://blog.exon.kr/" target="_blank" rel="noreferrer">Blog</a>
-                        <a className="chip" href="https://www.instagram.com/exon001/" target="_blank" rel="noreferrer">Instagram</a>
+                        {/* <a className="chip" href="https://www.instagram.com/exon001/" target="_blank" rel="noreferrer">Instagram</a> */}
                     </div>
                 </header>
 
@@ -185,10 +185,6 @@ function App() {
                             <h3>ML &amp; Quant</h3>
                             <p>Applied machine learning and systematic investing, from genetic algorithms to ETF backtests.</p>
                         </div>
-                    </div>
-                    <div className="callout">
-                        <strong>Say hi:</strong> I’m always up for an interesting problem — a CTF team, a hackathon, or a side project.
-                        Reach me at <a href="mailto:exon.indiv@gmail.com">exon.indiv@gmail.com</a>.
                     </div>
                 </section>
 
